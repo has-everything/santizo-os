@@ -2,6 +2,8 @@
 
 Personal site for Hector Augusto Santizo (HAS), styled as a retro desktop OS: draggable windows, desktop file icons, a "bad ideas" trash can. Plain HTML/CSS/JS, no build step, no framework. Plain scripts (no modules) so the site also works via `file://`. Intended to become the new **santizo.com**.
 
+Repo: **github.com/has-everything/santizo-os**. Live at **https://santizo-os.vercel.app** (Vercel project `santizo-os`, GitHub integration: push to `main` → production, no build command, output = repo root).
+
 Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (claude.ai/design). Related: has.tools repo at `~/Desktop/DesktopProjects/HAS_Tools_Website` (same owner, same conventions).
 
 ## Structure
@@ -35,7 +37,8 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 - Vimeo reel id 350908783 is the current reel; swap when recut.
 - `PHOTOS` hotlinks images from the old santizo.com; copy them into `img/` here before the old site goes away.
 - Project windows (`anim`, `xr`) still link to old santizo.com pages; fold that content in here eventually.
-- No deploy target set up yet (no git repo, no hosting).
+- Canonical/OG URLs point at `https://santizo.com/`, which still serves the old site. Correct once the domain moves here; until then the vercel.app URL intentionally defers to it.
+- No custom domain yet: when ready, point santizo.com at the Vercel project.
 
 ## Preview
 
