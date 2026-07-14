@@ -12,7 +12,7 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 - `boring.html` — "boring mode": plain semantic one-pager (bio, work links, email/socials). Serves recruiters in a hurry, screen readers, and SEO; styled by the `body.plain` section of style.css
 - `css/style.css` — all styles; ink/cream brand tokens in `:root`; mobile-feed styles at the bottom gated by `body.mode-mobile`
 - `js/site-data.js` — **the content file**: `WINDOWS` (every window incl. its body HTML), `ICONS`, `MOBILE_FEED` (card order + which start collapsed), `PHOTOS`, `TRASH_NAME`/`TRASH_FIXED`. Edit this to change the site.
-- `js/os.js` — boots the right mode (`matchMedia ≤820px` → mobile, else desktop; crossing the breakpoint reloads) and runs the desktop window manager: drag, focus/z-order, minimize (roll up)/maximize (1.6x width), drag-to-trash with put-back, photo gallery, menu clock, initial layout. Rarely needs editing.
+- `js/os.js` — boots the right mode (`matchMedia ≤820px` → mobile, else desktop; crossing the breakpoint reloads) and runs the desktop window manager: drag, focus/z-order, minimize (roll up), maximize (1.6x width, or full-page for `maxFull` media windows: reel, photos, projects), drag-to-trash with put-back, photo gallery, menu clock, initial layout. Rarely needs editing.
 - `js/mobile.js` — mobile renderer: the same `WINDOWS` render as stacked collapsible cards in `MOBILE_FEED` order; `data-open` scrolls to and flashes the card; desktop-only hints (`.file-hint`, `.trash-hint`) are stripped.
 
 ## Common tasks

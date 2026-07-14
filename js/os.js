@@ -36,6 +36,7 @@
   var desk = document.getElementById('desktop');
   var trashTarget = document.getElementById('trashTarget');
   var deskW = 1180;
+  var deskH = 820;
   var gulpTimer = null;
 
   var winEls = {};
@@ -113,20 +114,38 @@
   /* ---------- rendering ---------- */
 
   function maxWidth(id) {
-    return Math.round(Math.min(WINDOWS[id].width * 1.6, deskW - 48));
+    var def = WINDOWS[id];
+    if (def.maxFull) {
+      /* fill the desktop; media windows are capped by their aspect ratio so
+         the whole window still fits on the page */
+      var w = deskW - 24;
+      if (def.maxAspect) {
+        w = Math.min(w, Math.round((deskH - 56 - (def.maxChrome || 64)) * def.maxAspect));
+      }
+      return w;
+    }
+    return Math.round(Math.min(def.width * 1.6, deskW - 48));
   }
 
   function applyWin(id) {
     var w = state.wins[id];
     var el = winEls[id];
+    var def = WINDOWS[id];
+    var full = w.max && def.maxFull;
+    var width = w.max ? maxWidth(id) : def.width;
     el.style.display = w.open ? 'block' : 'none';
-    el.style.left = Math.round(w.x) + 'px';
-    el.style.top = Math.round(w.y) + 'px';
+    /* full-page maximize renders centered under the menu bar; the window's
+       own x/y stay untouched so un-maximizing restores its place */
+    el.style.left = Math.round(full ? Math.max(12, (deskW - width) / 2) : w.x) + 'px';
+    el.style.top = Math.round(full ? 44 : w.y) + 'px';
     el.style.zIndex = w.z;
-    el.style.width = (w.max ? maxWidth(id) : WINDOWS[id].width) + 'px';
+    el.style.width = width + 'px';
     el.querySelector('.win-body').style.display = w.min ? 'none' : 'block';
-    var sh = WINDOWS[id].stageHeights;
-    if (sh) el.querySelector('.stage').style.height = (w.max ? sh[1] : sh[0]) + 'px';
+    var sh = def.stageHeights;
+    if (sh) {
+      var stageH = w.max ? (full ? deskH - 136 : sh[1]) : sh[0];
+      el.querySelector('.stage').style.height = stageH + 'px';
+    }
   }
 
   function applyIcon(id) {
@@ -171,8 +190,11 @@
     var w = state.wins[id];
     w.max = !w.max;
     w.min = false;
-    var width = w.max ? maxWidth(id) : WINDOWS[id].width;
-    w.x = Math.max(12, Math.min(w.x, deskW - width - 24));
+    /* full-page maximize doesn't move x/y, so there's nothing to clamp */
+    if (!(w.max && WINDOWS[id].maxFull)) {
+      var width = w.max ? maxWidth(id) : WINDOWS[id].width;
+      w.x = Math.max(12, Math.min(w.x, deskW - width - 24));
+    }
     applyWin(id);
     focus(id);
   }
@@ -232,6 +254,8 @@
   function dragStart(id, e) {
     if (e.target.closest('[data-nodrag]')) return;
     if (e.target.closest('a')) return;
+    /* a full-page maximized window is pinned; un-maximize to move it */
+    if (state.wins[id].max && WINDOWS[id].maxFull) { focus(id); return; }
     e.preventDefault();
     focus(id);
     var w = state.wins[id];
@@ -321,6 +345,7 @@
   function fitToDesktop() {
     var W = desk.offsetWidth, H = desk.offsetHeight;
     deskW = W;
+    deskH = H;
     Object.keys(state.wins).forEach(function (id) {
       var def = WINDOWS[id];
       if (def.dockRight) state.wins[id].x = Math.max(24, W - def.width - 48);

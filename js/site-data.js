@@ -12,6 +12,9 @@
      file       marks it as a deletable desktop file; value is the trash label
      dockRight  position against the right edge on load, ignoring x
      stageHeights  [normal, maximized] height for a .stage element in the body
+     maxFull    maximize fills the whole desktop (media windows) instead of 1.6x;
+                with maxAspect (w/h of the media) + maxChrome (px of non-media
+                height) the width is capped so the window still fits the page
 */
 
 var PHOTOS = [];
@@ -29,6 +32,7 @@ var WINDOWS = {
   reel: {
     title: 'Showreel 2026',
     width: 640, x: 40, y: 62, open: true,
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 64,
     body:
       '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/350908783?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1" loading="lazy" allow="autoplay" title="Reel"></iframe></div>' +
       '<div class="reel-foot"><span>▶ playing · loop</span><span>350908783.mov</span></div>'
@@ -81,6 +85,7 @@ var WINDOWS = {
   anim: {
     title: '3d_animation',
     width: 440, x: 340, y: 140, open: false,
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 220,
     body:
       '<div class="prose prose-tight">' +
         '<div class="still">Still · 3D animation</div>' +
@@ -93,6 +98,7 @@ var WINDOWS = {
   xr: {
     title: 'xr_interaction',
     width: 440, x: 400, y: 200, open: false,
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 220,
     body:
       '<div class="prose prose-tight">' +
         '<div class="still">Still · XR demo</div>' +
@@ -115,7 +121,7 @@ var WINDOWS = {
 
   bm: {
     title: 'playa_stills · Burning Man',
-    width: 480, x: 220, y: 110, open: false, stageHeights: [310, 470],
+    width: 480, x: 220, y: 110, open: false, stageHeights: [310, 470], maxFull: true,
     body:
       '<div class="stage"><img id="photoImg" alt="Burning Man photograph by Hector Santizo" loading="lazy"></div>' +
       '<div class="gallery-bar">' +
