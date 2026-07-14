@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SantizoOS · Hector Santizo</title>
+<meta name="description" content="Hector Santizo, creative technologist. 3D motion, XR prototypes, and tools for creative people, presented as a retro desktop OS.">
+<link rel="canonical" href="https://santizo.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://santizo.com/">
+<meta property="og:title" content="SantizoOS · Hector Santizo">
+<meta property="og:description" content="Hector Santizo, creative technologist. 3D motion, XR prototypes, and tools for creative people.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✷</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- shared chrome: shown in both desktop and mobile modes -->
+<div id="menubar">
+  <div class="menu-left">
+    <span class="menu-brand">✷</span>
+    <span class="menu-brand menu-brand-name">Santizo</span>
+    <span class="menu-item" data-open="reel">Reel</span>
+    <span class="menu-item" data-open="work">Work</span>
+    <span class="menu-item" data-open="bm">Photos</span>
+    <span class="menu-item" data-open="about">About</span>
+    <a class="menu-item" href="mailto:hector@santizo.com">Hello</a>
+    <a class="menu-item" href="https://www.instagram.com/has_projects/" target="_blank" rel="noopener" title="Instagram">IG</a>
+    <a class="menu-item" href="https://www.youtube.com/@has.studio" target="_blank" rel="noopener" title="YouTube">YT</a>
+  </div>
+  <span class="menu-right">
+    <a class="menu-item" href="boring.html" title="The plain version">boring mode</a>
+    <span id="clock"></span>
+  </span>
+</div>
+
+<!-- desktop mode: windows and icons are built into here by js/os.js -->
+<div id="desktop">
+  <span id="trashTarget" title="bad ideas">
+    <span class="trash-stack">
+      <span id="poof">💨✨</span>
+      <span id="trashIcon">🗑</span>
+    </span>
+    <span id="trashLabel">bad ideas</span>
+  </span>
+</div>
+
+<!-- mobile mode (≤820px): cards are built into here by js/mobile.js -->
+<main id="feed"></main>
+
+<!-- Load order matters: content, then renderers. Plain scripts so file:// works. -->
+<script src="js/site-data.js"></script>
+<script src="js/mobile.js"></script>
+<script src="js/os.js"></script>
+</body>
+</html>
