@@ -351,16 +351,28 @@
     var W = desk.offsetWidth, H = desk.offsetHeight;
     deskW = W;
     deskH = H;
+    /* On screens larger than the ~1730px design, media windows (maxFull),
+       icons, and the trash scale up modestly so the desk doesn't feel
+       empty. Text windows keep their size so type stays crisp. Height-aware
+       and inside the clipped desktop, so it can never cause scrolling. */
+    var s = Math.max(1, Math.min(W / 1730, H / 900, 1.35));
     Object.keys(state.wins).forEach(function (id) {
       var def = WINDOWS[id];
-      /* a window wider than the desktop (e.g. the reel on a narrow browser)
-         shrinks to fit once at load */
-      if (def.width > W - 32) def.width = W - 32;
+      def.baseWidth = def.baseWidth || def.width;
+      if (def.stageHeights && !def.baseStages) def.baseStages = def.stageHeights;
+      var k = def.maxFull ? s : 1;
+      /* also shrinks a window wider than the desktop (e.g. the reel on a
+         narrow browser) to fit */
+      def.width = Math.min(Math.round(def.baseWidth * k), W - 32);
+      if (def.baseStages) {
+        def.stageHeights = [Math.round(def.baseStages[0] * k), Math.round(def.baseStages[1] * k)];
+      }
       if (def.dockRight) state.wins[id].x = Math.max(24, W - def.width - 48);
       if (def.dockBottom) state.wins[id].y = Math.max(44, H - def.dockBottom);
       state.wins[id].x = Math.min(state.wins[id].x, Math.max(12, W - def.width - 20));
     });
-    /* bottom-anchored columns from the right edge (col 0 rightmost) */
+    /* bottom-anchored columns from the right edge (col 0 rightmost);
+       icons are em-sized, so scaling their font size scales the icon */
     var cols = {};
     ICONS.forEach(function (ic) {
       var c = ic.col || 0;
@@ -368,9 +380,14 @@
     });
     Object.keys(cols).forEach(function (c) {
       cols[c].forEach(function (ic, i) {
-        state.icons[ic.id] = { x: W - 140 - 110 * c, y: H - 220 - 80 * (cols[c].length - 1 - i) };
+        state.icons[ic.id] = {
+          x: W - (140 + 110 * c) * s,
+          y: H - (220 + 80 * (cols[c].length - 1 - i)) * s
+        };
+        iconEls[ic.id].style.fontSize = (11 * s).toFixed(2) + 'px';
       });
     });
+    trashTarget.style.fontSize = (11 * s).toFixed(2) + 'px';
     applyAll();
   }
 

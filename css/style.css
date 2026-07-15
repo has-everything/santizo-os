@@ -123,25 +123,25 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .trash-restore:hover{background:var(--ink);color:var(--paper)}
 .trash-hint{padding:8px 14px;font-size:11px;opacity:.5;border-bottom:none}
 
-/* desktop icons */
+/* desktop icons (em-sized: the engine scales font-size on large screens) */
 .icon{
-  position:absolute;z-index:2;display:flex;flex-direction:column;align-items:center;gap:5px;
-  width:96px;cursor:grab;user-select:none;touch-action:none;
+  position:absolute;z-index:2;display:flex;flex-direction:column;align-items:center;gap:.45em;
+  width:8.73em;cursor:grab;user-select:none;touch-action:none;
   font-size:11px;text-align:center;text-decoration:none;
 }
 .icon:hover{opacity:.7}
-.icon-glyph{font-size:30px}
+.icon-glyph{font-size:2.73em}
 
-/* trash icon (drop target) */
+/* trash icon (drop target; em-sized like the desktop icons) */
 #trashTarget{
   position:absolute;bottom:28px;right:44px;z-index:1;
-  display:flex;flex-direction:column;align-items:center;gap:6px;
+  display:flex;flex-direction:column;align-items:center;gap:.55em;
   font-size:11px;cursor:pointer;user-select:none;padding:8px 12px;
 }
 #trashTarget:hover{opacity:.8}
 .trash-stack{position:relative;display:grid;place-items:center}
-#trashIcon{font-size:32px;display:inline-block;transition:transform .18s ease}
-#poof{position:absolute;left:50%;bottom:100%;font-size:15px;pointer-events:none;opacity:0}
+#trashIcon{font-size:2.9em;display:inline-block;transition:transform .18s ease}
+#poof{position:absolute;left:50%;bottom:100%;font-size:1.36em;pointer-events:none;opacity:0}
 #trashLabel{background:transparent;padding:1px 6px;transition:background .15s,color .15s}
 #trashTarget.hot #trashIcon{animation:trashWobble .5s ease-in-out infinite}
 #trashTarget.gulp #trashIcon{animation:trashGulp .55s ease}
