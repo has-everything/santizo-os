@@ -11,6 +11,8 @@
    Optional:
      file       marks it as a deletable desktop file; value is the trash label
      dockRight  position against the right edge on load, ignoring x
+     dockBottom position the window's top edge this many px above the desktop
+                bottom on load, ignoring y (keeps layouts working on tall screens)
      stageHeights  [normal, maximized] height for a .stage element in the body
      maxFull    maximize fills the whole desktop (media windows) instead of 1.6x;
                 with maxAspect (w/h of the media) + maxChrome (px of non-media
@@ -41,7 +43,7 @@ var WINDOWS = {
   /* defined right after reel so it stacks above it but under about/work */
   hastools: {
     title: 'has.tools · free creative tools',
-    width: 640, x: 580, y: 300, open: true, stageHeights: [300, 470], maxFull: true,
+    width: 640, x: 740, y: 300, dockBottom: 580, open: true, stageHeights: [300, 470], maxFull: true,
     body:
       '<div class="stage"><div class="stage-note">has.tools · showcase still coming soon</div></div>' +
       '<div class="widget-caption">Free browser tools for motion designers, 3D artists, and creative coders. Splay · HAS Lathe · HAS Dither · more.</div>' +
@@ -57,7 +59,6 @@ var WINDOWS = {
         '<div class="blurb">3D motion, XR prototypes, and tools for creative people. Complex in, clear out.</div>' +
         '<div class="btn-row">' +
           '<a class="btn" href="mailto:hector@santizo.com">Email</a>' +
-          '<span class="btn" data-open="hastools">has.tools</span>' +
         '</div>' +
       '</div>'
   },
@@ -71,7 +72,7 @@ var WINDOWS = {
 
   work: {
     title: 'Selected Work · 3 items',
-    width: 560, x: 110, y: 580, open: true,
+    width: 560, x: 110, y: 580, dockBottom: 220, open: true,
     body:
       '<span class="row" data-open="anim"><span>📁 Motion &amp; Animation</span><span class="dim">Unity · CG · immersive</span></span>' +
       '<span class="row" data-open="xr"><span>📁 XR &amp; Interaction</span><span class="dim">hands · gesture · spatial</span></span>' +

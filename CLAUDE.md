@@ -17,7 +17,7 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 
 ## Common tasks
 
-**Add a window**: add an entry to `WINDOWS` in `js/site-data.js` (`title`, `width`, `x`, `y`, `open`, `body`). Optional: `file: 'name.ext'` makes it a deletable desktop file; `dockRight: true` docks it to the right edge on load; `stageHeights: [normal, max]` sizes a `.stage` element in the body. Give it a desktop icon by adding to `ICONS` (icon `id` must be a `WINDOWS` key), and/or a menu item in `index.html` (`<span class="menu-item" data-open="<id>">`). Also add it to `MOBILE_FEED` or it won't appear on phones.
+**Add a window**: add an entry to `WINDOWS` in `js/site-data.js` (`title`, `width`, `x`, `y`, `open`, `body`). Optional: `file: 'name.ext'` makes it a deletable desktop file; `dockRight: true` docks it to the right edge on load; `dockBottom: <px>` puts its top edge that many px above the desktop bottom on load (y becomes the fallback); `stageHeights: [normal, max]` sizes a `.stage` element in the body. Give it a desktop icon by adding to `ICONS` (icon `id` must be a `WINDOWS` key), and/or a menu item in `index.html` (`<span class="menu-item" data-open="<id>">`). Also add it to `MOBILE_FEED` or it won't appear on phones.
 
 **Add a desktop shortcut to an external link**: add an `ICONS` entry with `href` instead of a window id (e.g. the instagram/youtube icons). `col: 1` places an icon one column left of the rightmost; columns are bottom-anchored.
 

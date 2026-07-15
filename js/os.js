@@ -353,6 +353,7 @@
          shrinks to fit once at load */
       if (def.width > W - 32) def.width = W - 32;
       if (def.dockRight) state.wins[id].x = Math.max(24, W - def.width - 48);
+      if (def.dockBottom) state.wins[id].y = Math.max(44, H - def.dockBottom);
       state.wins[id].x = Math.min(state.wins[id].x, Math.max(12, W - def.width - 20));
     });
     /* bottom-anchored columns from the right edge (col 0 rightmost) */
