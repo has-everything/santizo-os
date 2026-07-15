@@ -36,7 +36,10 @@ var WINDOWS = {
     width: 960, x: 40, y: 62, open: true,
     maxFull: true, maxAspect: 16 / 9, maxChrome: 64,
     body:
-      '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/350908783?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1" loading="lazy" allow="autoplay" title="Reel"></iframe></div>' +
+      /* the shield sits over the iframe so clicks reach the window: focus
+         to front, and the video area doubles as a drag handle (the player
+         is a chrome-less background loop, so it needs no clicks itself) */
+      '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/350908783?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1" loading="lazy" allow="autoplay" title="Reel"></iframe><span class="frame-shield"></span></div>' +
       '<div class="reel-foot"><span>▶ playing · loop</span><span>350908783.mov</span></div>'
   },
 

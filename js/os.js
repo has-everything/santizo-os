@@ -83,6 +83,10 @@
     el.querySelector('[data-act=min]').addEventListener('click', function () { toggleMin(id); });
     el.querySelector('[data-act=max]').addEventListener('click', function () { toggleMax(id); });
     el.querySelector('.win-bar').addEventListener('pointerdown', function (e) { dragStart(id, e); });
+    /* iframes swallow pointer events; a shield over them lets clicks focus
+       the window and doubles as a drag handle */
+    var shield = el.querySelector('.frame-shield');
+    if (shield) shield.addEventListener('pointerdown', function (e) { dragStart(id, e); });
     desk.appendChild(el);
     winEls[id] = el;
   }

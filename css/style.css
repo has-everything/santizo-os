@@ -55,8 +55,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .win-title{flex:1;text-align:center;background:var(--chrome);padding:0 12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* reel */
-.reel-frame{aspect-ratio:16/9;background:#000;border-bottom:2px solid var(--ink)}
+.reel-frame{aspect-ratio:16/9;background:#000;border-bottom:2px solid var(--ink);position:relative}
 .reel-frame iframe{width:100%;height:100%;border:0;display:block}
+.frame-shield{position:absolute;inset:0;cursor:grab;touch-action:none}
 .reel-foot{display:flex;justify-content:space-between;padding:6px 10px;font-size:11px}
 
 /* prose windows (about / projects) */
@@ -193,6 +194,8 @@ body.mode-mobile #feed{display:block;padding:16px 14px 40px;max-width:640px;marg
 body.mode-mobile .stage{height:min(70vw,340px)}
 body.mode-mobile .gallery-bar{flex-wrap:wrap}
 body.mode-mobile .headline{font-size:24px}
+/* no window focus/drag on mobile; the shield would only block feed scrolling */
+body.mode-mobile .frame-shield{display:none}
 
 @media (max-width:480px){
   body.mode-mobile #clock{display:none}
