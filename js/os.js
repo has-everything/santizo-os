@@ -264,13 +264,11 @@
     e.preventDefault();
     focus(id);
     var w = state.wins[id];
-    /* pointer deltas are visual px; divide by the page zoom to get layout px */
-    var scale = desk.getBoundingClientRect().width / desk.offsetWidth || 1;
     var sx = e.clientX, sy = e.clientY, ox = w.x, oy = w.y;
     var deletable = !!WINDOWS[id].file;
     var move = function (ev) {
-      w.x = ox + (ev.clientX - sx) / scale;
-      w.y = Math.max(32, oy + (ev.clientY - sy) / scale);
+      w.x = ox + (ev.clientX - sx);
+      w.y = Math.max(32, oy + (ev.clientY - sy));
       applyWin(id);
       if (deletable) setTrashHot(overTrash(ev));
     };
@@ -294,7 +292,6 @@
     if (!icon.href) e.preventDefault();
     var id = icon.id;
     var ic = state.icons[id];
-    var scale = desk.getBoundingClientRect().width / desk.offsetWidth || 1;
     var sx = e.clientX, sy = e.clientY, ox = ic.x, oy = ic.y;
     var def = WINDOWS[id];
     var deletable = !!(def && def.file);
@@ -302,8 +299,8 @@
     var move = function (ev) {
       if (Math.abs(ev.clientX - sx) + Math.abs(ev.clientY - sy) > 6) moved = true;
       if (!moved) return;
-      ic.x = ox + (ev.clientX - sx) / scale;
-      ic.y = Math.max(34, oy + (ev.clientY - sy) / scale);
+      ic.x = ox + (ev.clientX - sx);
+      ic.y = Math.max(34, oy + (ev.clientY - sy));
       applyIcon(id);
       if (deletable) setTrashHot(overTrash(ev));
     };
@@ -400,13 +397,6 @@
   var next = document.getElementById('photoNext');
   if (prev) prev.addEventListener('click', function () { photoStep(-1); });
   if (next) next.addEventListener('click', function () { photoStep(1); });
-
-  /* On screens much wider than the ~1730px design, scale the whole page up
-     so the collage stays composed instead of drifting apart in empty desk.
-     Height-aware so the zoom never forces vertical scrolling. Load-time
-     only, like the rest of the layout. */
-  var pageZoom = Math.max(1, Math.min(window.innerWidth / 1730, window.innerHeight / 980, 1.6));
-  if (pageZoom > 1.02) document.body.style.zoom = pageZoom;
 
   renderTrash();
   updateGallery();
