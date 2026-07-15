@@ -45,9 +45,10 @@
   var state = { wins: {}, icons: {}, deleted: {}, photoIndex: 0, topZ: 0 };
   Object.keys(WINDOWS).forEach(function (id, i) {
     var def = WINDOWS[id];
-    state.wins[id] = { x: def.x, y: def.y, z: i + 1, open: !!def.open, min: false, max: false };
+    /* windows start at z 10 so they always stack above desktop icons (z 2) */
+    state.wins[id] = { x: def.x, y: def.y, z: i + 10, open: !!def.open, min: false, max: false };
     if (def.file) state.deleted[id] = false;
-    state.topZ = i + 1;
+    state.topZ = i + 10;
   });
   ICONS.forEach(function (ic) { state.icons[ic.id] = { x: -200, y: 0 }; });
 
@@ -348,6 +349,9 @@
     deskH = H;
     Object.keys(state.wins).forEach(function (id) {
       var def = WINDOWS[id];
+      /* a window wider than the desktop (e.g. the reel on a narrow browser)
+         shrinks to fit once at load */
+      if (def.width > W - 32) def.width = W - 32;
       if (def.dockRight) state.wins[id].x = Math.max(24, W - def.width - 48);
       state.wins[id].x = Math.min(state.wins[id].x, Math.max(12, W - def.width - 20));
     });

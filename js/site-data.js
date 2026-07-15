@@ -31,11 +31,21 @@ var WINDOWS = {
 
   reel: {
     title: 'Showreel 2026',
-    width: 640, x: 40, y: 62, open: true,
+    width: 960, x: 40, y: 62, open: true,
     maxFull: true, maxAspect: 16 / 9, maxChrome: 64,
     body:
       '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/350908783?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1" loading="lazy" allow="autoplay" title="Reel"></iframe></div>' +
       '<div class="reel-foot"><span>▶ playing · loop</span><span>350908783.mov</span></div>'
+  },
+
+  /* defined right after reel so it stacks above it but under about/work */
+  hastools: {
+    title: 'has.tools · free creative tools',
+    width: 640, x: 580, y: 300, open: true, stageHeights: [300, 470], maxFull: true,
+    body:
+      '<div class="stage"><div class="stage-note">has.tools · showcase still coming soon</div></div>' +
+      '<div class="widget-caption">Free browser tools for motion designers, 3D artists, and creative coders. Splay · HAS Lathe · HAS Dither · more.</div>' +
+      '<a class="row row-first" href="https://www.has.tools" target="_blank" rel="noopener"><span>🛠 Explore all 7 tools</span><span class="dim">has.tools ↗</span></a>'
   },
 
   about: {
@@ -61,25 +71,11 @@ var WINDOWS = {
 
   work: {
     title: 'Selected Work · 3 items',
-    width: 560, x: 110, y: 540, open: true,
+    width: 560, x: 110, y: 580, open: true,
     body:
       '<span class="row" data-open="anim"><span>📁 Motion &amp; Animation</span><span class="dim">Unity · CG · immersive</span></span>' +
       '<span class="row" data-open="xr"><span>📁 XR &amp; Interaction</span><span class="dim">hands · gesture · spatial</span></span>' +
       '<span class="row" data-open="hastools"><span>🛠 Creative Tools</span><span class="dim">7 free tools · has.tools</span></span>'
-  },
-
-  hastools: {
-    title: 'has.tools · free creative tools',
-    width: 440, x: 380, y: 120, open: false,
-    body:
-      '<div class="prose prose-tight">' +
-        '<div class="proj-title">HAS.TOOLS</div>' +
-        '<div class="blurb proj-blurb">Free browser tools for motion designers, 3D artists, and creative coders. Built in the open, no signups.</div>' +
-      '</div>' +
-      '<a class="row row-first" href="https://has.tools/tools/splay.html" target="_blank" rel="noopener"><span>💥 Splay</span><span class="dim">exploded-view studio</span></a>' +
-      '<a class="row" href="https://has.tools/tools/lathe.html" target="_blank" rel="noopener"><span>🏺 HAS Lathe</span><span class="dim">3D vessel modeler</span></a>' +
-      '<a class="row" href="https://has.tools/tools/dither.html" target="_blank" rel="noopener"><span>🎛 HAS Dither</span><span class="dim">node-based dithering</span></a>' +
-      '<a class="row" href="https://www.has.tools" target="_blank" rel="noopener"><span>🛠 All 7 tools</span><span class="dim">has.tools ↗</span></a>'
   },
 
   anim: {
