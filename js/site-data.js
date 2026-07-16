@@ -27,6 +27,18 @@ for (var i = 2; i <= 19; i++) {
 var TRASH_NAME = 'bad ideas';
 var TRASH_FIXED = ['make_the_logo_bigger.psd', 'just_use_a_template.html', 'play_it_safe.plan'];
 
+/* XR clip reel, shown in the xr window as a player: stage + playlist.
+   Only the first clip's iframe is in the HTML (lazy); switching swaps src. */
+var XR_VIDEOS = [
+  { title: 'HAS Photo Booth', tag: 'MediaPipe · browser', src: 'https://www.youtube.com/embed/1L2anMG2k-8' },
+  { title: 'Hand Tracker', tag: 'MediaPipe · JavaScript', src: 'https://www.youtube.com/embed/2WZzjRuMJU0' },
+  { title: 'Wrist Interaction', tag: 'tracked transforms', src: 'https://player.vimeo.com/video/989005478?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'Interactive 3D Calculator', tag: 'gesture math', src: 'https://player.vimeo.com/video/1001763153?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'Interactive Gauge Control', tag: 'VR/AR dials', src: 'https://player.vimeo.com/video/982232014?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'Arrow Grid System', tag: 'VR interaction', src: 'https://player.vimeo.com/video/990364072?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'Pinch Twist Interaction', tag: 'hand gesture', src: 'https://player.vimeo.com/video/990453573?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' }
+];
+
 var FILE_HINT = '<div class="file-hint">drag this window (or its desktop icon) onto the trash to delete</div>';
 
 var WINDOWS = {
@@ -96,16 +108,21 @@ var WINDOWS = {
   },
 
   xr: {
-    title: 'xr_interaction',
-    width: 440, x: 400, y: 200, open: false,
-    maxFull: true, maxAspect: 16 / 9, maxChrome: 220,
+    title: 'xr_interaction · 7 clips',
+    width: 560, x: 400, y: 150, open: false,
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 320, stageHeights: [315, 470],
     body:
-      '<div class="prose prose-tight">' +
-        '<div class="still">Still · XR demo</div>' +
-        '<div class="proj-title">XR &amp; Interaction</div>' +
-        '<div class="blurb proj-blurb">Hand-tracking, gesture UX, and spatial interfaces in VR/AR.</div>' +
-        '<a class="btn btn-solo" href="https://santizo.com/xr.html" target="_blank" rel="noopener">Open project ↗</a>' +
-      '</div>'
+      '<div class="stage stage-video"><iframe id="xrFrame" src="' + XR_VIDEOS[0].src.replace(/&/g, '&amp;') + '" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + XR_VIDEOS[0].title + '"></iframe></div>' +
+      '<div class="gallery-bar">' +
+        '<button type="button" class="nav-btn" id="xrPrev" aria-label="Previous clip">◀</button>' +
+        '<button type="button" class="nav-btn" id="xrNext" aria-label="Next clip">▶</button>' +
+        '<span class="gallery-counter" id="xrCounter">1 / ' + XR_VIDEOS.length + '</span>' +
+        '<span class="gallery-note" id="xrTitle">' + XR_VIDEOS[0].title + '</span>' +
+      '</div>' +
+      XR_VIDEOS.map(function (v, i) {
+        return '<span class="row row-slim xr-row' + (i === 0 ? ' row-active' : '') + '" data-video="' + i + '">' +
+          '<span>▸ ' + v.title + '</span><span class="dim">' + v.tag + '</span></span>';
+      }).join('')
   },
 
   trash: {

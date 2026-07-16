@@ -148,7 +148,8 @@
     el.querySelector('.win-body').style.display = w.min ? 'none' : 'block';
     var sh = def.stageHeights;
     if (sh) {
-      var stageH = w.max ? (full ? deskH - 136 : sh[1]) : sh[0];
+      /* full-page: video stages keep their aspect; photo stages fill the page */
+      var stageH = w.max ? (full ? (def.maxAspect ? Math.round(width / def.maxAspect) : deskH - 136) : sh[1]) : sh[0];
       el.querySelector('.stage').style.height = stageH + 'px';
     }
   }
@@ -330,6 +331,29 @@
     window.addEventListener('pointerup', up);
   }
 
+  /* ---------- xr clip player ---------- */
+
+  function initXrPlayer() {
+    var frame = document.getElementById('xrFrame');
+    if (!frame) return;
+    var idx = 0;
+    function show(i) {
+      idx = (i + XR_VIDEOS.length) % XR_VIDEOS.length;
+      frame.src = XR_VIDEOS[idx].src;
+      frame.title = XR_VIDEOS[idx].title;
+      document.getElementById('xrCounter').textContent = (idx + 1) + ' / ' + XR_VIDEOS.length;
+      document.getElementById('xrTitle').textContent = XR_VIDEOS[idx].title;
+      document.querySelectorAll('.xr-row').forEach(function (r, j) {
+        r.classList.toggle('row-active', j === idx);
+      });
+    }
+    document.getElementById('xrPrev').addEventListener('click', function () { show(idx - 1); });
+    document.getElementById('xrNext').addEventListener('click', function () { show(idx + 1); });
+    document.querySelectorAll('.xr-row').forEach(function (r) {
+      pressable(r, function () { show(parseInt(r.getAttribute('data-video'), 10)); });
+    });
+  }
+
   /* ---------- photo gallery ---------- */
 
   function updateGallery() {
@@ -417,6 +441,7 @@
 
   renderTrash();
   updateGallery();
+  initXrPlayer();
   fitToDesktop();
   /* the desktop can measure 0 wide until the page is actually displayed */
   if (!desk.offsetWidth && 'ResizeObserver' in window) {

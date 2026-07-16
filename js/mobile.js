@@ -60,6 +60,27 @@ var SantizoMobile = {
       pressable(el, function () { reveal(el.getAttribute('data-open')); });
     });
 
+    /* xr clip player */
+    var xrFrame = document.getElementById('xrFrame');
+    if (xrFrame) {
+      var xrIdx = 0;
+      var showClip = function (i) {
+        xrIdx = (i + XR_VIDEOS.length) % XR_VIDEOS.length;
+        xrFrame.src = XR_VIDEOS[xrIdx].src;
+        xrFrame.title = XR_VIDEOS[xrIdx].title;
+        document.getElementById('xrCounter').textContent = (xrIdx + 1) + ' / ' + XR_VIDEOS.length;
+        document.getElementById('xrTitle').textContent = XR_VIDEOS[xrIdx].title;
+        document.querySelectorAll('.xr-row').forEach(function (r, j) {
+          r.classList.toggle('row-active', j === xrIdx);
+        });
+      };
+      document.getElementById('xrPrev').addEventListener('click', function () { showClip(xrIdx - 1); });
+      document.getElementById('xrNext').addEventListener('click', function () { showClip(xrIdx + 1); });
+      document.querySelectorAll('.xr-row').forEach(function (r) {
+        pressable(r, function () { showClip(parseInt(r.getAttribute('data-video'), 10)); });
+      });
+    }
+
     /* photo gallery */
     var idx = 0;
     function update() {
