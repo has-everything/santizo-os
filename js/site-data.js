@@ -27,8 +27,32 @@ for (var i = 2; i <= 19; i++) {
 var TRASH_NAME = 'bad ideas';
 var TRASH_FIXED = ['make_the_logo_bigger.psd', 'just_use_a_template.html', 'play_it_safe.plan'];
 
-/* XR clip reel, shown in the xr window as a player: stage + playlist.
+/* Clip players (stage + prev/next + playlist). clipPlayerBody() builds the
+   window body; js/os.js and js/mobile.js wire it via initClipPlayer(ns, list).
    Only the first clip's iframe is in the HTML (lazy); switching swaps src. */
+function clipPlayerBody(ns, videos) {
+  return '<div class="stage stage-video"><iframe id="' + ns + 'Frame" src="' + videos[0].src.replace(/&/g, '&amp;') + '" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + videos[0].title + '"></iframe></div>' +
+    '<div class="gallery-bar">' +
+      '<button type="button" class="nav-btn" id="' + ns + 'Prev" aria-label="Previous clip">◀</button>' +
+      '<button type="button" class="nav-btn" id="' + ns + 'Next" aria-label="Next clip">▶</button>' +
+      '<span class="gallery-counter" id="' + ns + 'Counter">1 / ' + videos.length + '</span>' +
+      '<span class="gallery-note" id="' + ns + 'Title">' + videos[0].title + '</span>' +
+    '</div>' +
+    videos.map(function (v, i) {
+      return '<span class="row row-slim ' + ns + '-row' + (i === 0 ? ' row-active' : '') + '" data-video="' + i + '">' +
+        '<span>▸ ' + v.title + '</span><span class="dim">' + v.tag + '</span></span>';
+    }).join('');
+}
+
+var ANIM_VIDEOS = [
+  { title: 'Roboto', tag: 'Plasticity · Unity · C#', src: 'https://player.vimeo.com/video/1056096066?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'HAS CG Reel', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/350908783?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'Star trails', tag: 'concept · art · animation', src: 'https://player.vimeo.com/video/269102770?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'Evidence of Existence', tag: '360 VR · particles', src: 'https://player.vimeo.com/video/207575582?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'Visual Alternatives', tag: 'audio-visual · Unity', src: 'https://www.youtube.com/embed/FrM8C7vHTow' },
+  { title: 'Real-time interactive app', tag: 'Unity · real-time', src: 'https://player.vimeo.com/video/548921641?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' }
+];
+
 var XR_VIDEOS = [
   { title: 'HAS Photo Booth', tag: 'MediaPipe · browser', src: 'https://www.youtube.com/embed/1L2anMG2k-8' },
   { title: 'Hand Tracker', tag: 'MediaPipe · JavaScript', src: 'https://www.youtube.com/embed/2WZzjRuMJU0' },
@@ -95,34 +119,17 @@ var WINDOWS = {
   },
 
   anim: {
-    title: '3d_animation',
-    width: 440, x: 340, y: 140, open: false,
-    maxFull: true, maxAspect: 16 / 9, maxChrome: 220,
-    body:
-      '<div class="prose prose-tight">' +
-        '<div class="still">Still · 3D animation</div>' +
-        '<div class="proj-title">Motion &amp; Animation</div>' +
-        '<div class="blurb proj-blurb">Real-time Unity work, CG reels, and immersive visuals.</div>' +
-        '<a class="btn btn-solo" href="https://santizo.com/animation.html" target="_blank" rel="noopener">Open project ↗</a>' +
-      '</div>'
+    title: '3d_animation · 6 clips',
+    width: 560, x: 340, y: 120, open: false,
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 290, stageHeights: [315, 470],
+    body: clipPlayerBody('anim', ANIM_VIDEOS)
   },
 
   xr: {
     title: 'xr_interaction · 7 clips',
     width: 560, x: 400, y: 150, open: false,
     maxFull: true, maxAspect: 16 / 9, maxChrome: 320, stageHeights: [315, 470],
-    body:
-      '<div class="stage stage-video"><iframe id="xrFrame" src="' + XR_VIDEOS[0].src.replace(/&/g, '&amp;') + '" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + XR_VIDEOS[0].title + '"></iframe></div>' +
-      '<div class="gallery-bar">' +
-        '<button type="button" class="nav-btn" id="xrPrev" aria-label="Previous clip">◀</button>' +
-        '<button type="button" class="nav-btn" id="xrNext" aria-label="Next clip">▶</button>' +
-        '<span class="gallery-counter" id="xrCounter">1 / ' + XR_VIDEOS.length + '</span>' +
-        '<span class="gallery-note" id="xrTitle">' + XR_VIDEOS[0].title + '</span>' +
-      '</div>' +
-      XR_VIDEOS.map(function (v, i) {
-        return '<span class="row row-slim xr-row' + (i === 0 ? ' row-active' : '') + '" data-video="' + i + '">' +
-          '<span>▸ ' + v.title + '</span><span class="dim">' + v.tag + '</span></span>';
-      }).join('')
+    body: clipPlayerBody('xr', XR_VIDEOS)
   },
 
   trash: {

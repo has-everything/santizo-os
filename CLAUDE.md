@@ -33,8 +33,8 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 
 ## Known placeholders
 
-- The `xr` window is a real clip player (`XR_VIDEOS` in site-data.js: stage + prev/next + playlist; only the current clip's iframe loads). The `anim` window still has a black "Still" placeholder and links to the old santizo.com page; give it the same treatment when its clips are gathered.
-- Vimeo reel id 350908783 is the current reel; swap when recut.
+- The `xr` and `anim` windows are clip players (`XR_VIDEOS`/`ANIM_VIDEOS` in site-data.js; `clipPlayerBody(ns, list)` builds the markup, `initClipPlayer(ns, list)` in both renderers wires it; only the current clip's iframe loads). Add a clip = add a `{title, tag, src}` entry.
+- Vimeo reel id 350908783 is the current reel (also in `ANIM_VIDEOS` as HAS CG Reel); swap when recut.
 - `PHOTOS` hotlinks images from the old santizo.com; copy them into `img/` here before the old site goes away.
 - The has.tools widget stage is a text placeholder; swap the `.stage-note` div for an `<img>` (e.g. `img/hastools-card.png`) when a real capture exists.
 - Canonical/OG URLs point at `https://santizo.com/`, which still serves the old site. Correct once the domain moves here; until then the vercel.app URL intentionally defers to it.

@@ -331,25 +331,25 @@
     window.addEventListener('pointerup', up);
   }
 
-  /* ---------- xr clip player ---------- */
+  /* ---------- clip players (xr, anim, ...) ---------- */
 
-  function initXrPlayer() {
-    var frame = document.getElementById('xrFrame');
+  function initClipPlayer(ns, videos) {
+    var frame = document.getElementById(ns + 'Frame');
     if (!frame) return;
     var idx = 0;
     function show(i) {
-      idx = (i + XR_VIDEOS.length) % XR_VIDEOS.length;
-      frame.src = XR_VIDEOS[idx].src;
-      frame.title = XR_VIDEOS[idx].title;
-      document.getElementById('xrCounter').textContent = (idx + 1) + ' / ' + XR_VIDEOS.length;
-      document.getElementById('xrTitle').textContent = XR_VIDEOS[idx].title;
-      document.querySelectorAll('.xr-row').forEach(function (r, j) {
+      idx = (i + videos.length) % videos.length;
+      frame.src = videos[idx].src;
+      frame.title = videos[idx].title;
+      document.getElementById(ns + 'Counter').textContent = (idx + 1) + ' / ' + videos.length;
+      document.getElementById(ns + 'Title').textContent = videos[idx].title;
+      document.querySelectorAll('.' + ns + '-row').forEach(function (r, j) {
         r.classList.toggle('row-active', j === idx);
       });
     }
-    document.getElementById('xrPrev').addEventListener('click', function () { show(idx - 1); });
-    document.getElementById('xrNext').addEventListener('click', function () { show(idx + 1); });
-    document.querySelectorAll('.xr-row').forEach(function (r) {
+    document.getElementById(ns + 'Prev').addEventListener('click', function () { show(idx - 1); });
+    document.getElementById(ns + 'Next').addEventListener('click', function () { show(idx + 1); });
+    document.querySelectorAll('.' + ns + '-row').forEach(function (r) {
       pressable(r, function () { show(parseInt(r.getAttribute('data-video'), 10)); });
     });
   }
@@ -441,7 +441,8 @@
 
   renderTrash();
   updateGallery();
-  initXrPlayer();
+  initClipPlayer('xr', XR_VIDEOS);
+  initClipPlayer('anim', ANIM_VIDEOS);
   fitToDesktop();
   /* the desktop can measure 0 wide until the page is actually displayed */
   if (!desk.offsetWidth && 'ResizeObserver' in window) {
