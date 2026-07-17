@@ -44,6 +44,15 @@ function clipPlayerBody(ns, videos) {
     }).join('');
 }
 
+/* App windows: a has.tools app running inside the OS in an iframe, with an
+   escape-hatch row to the real thing. The iframe is lazy, so the app only
+   loads when its window is first opened. Desktop-only: don't add app windows
+   to MOBILE_FEED (the apps have their own mobile gates; phones use links). */
+function appWindowBody(name, src) {
+  return '<div class="stage stage-app"><iframe src="' + src + '" loading="lazy" allow="fullscreen; clipboard-write" title="' + name + '"></iframe></div>' +
+    '<a class="row row-first" href="' + src + '" target="_blank" rel="noopener"><span>↗ Open full app</span><span class="dim">' + src.replace('https://', '') + '</span></a>';
+}
+
 var ANIM_VIDEOS = [
   { title: 'Roboto', tag: 'Plasticity · Unity · C#', src: 'https://player.vimeo.com/video/1056096066?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
   { title: 'HAS CG Reel', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/350908783?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
@@ -156,6 +165,12 @@ var WINDOWS = {
       '</div>'
   },
 
+  lathe: {
+    title: 'HAS Lathe · 3D vessel modeler',
+    width: 900, x: 200, y: 90, open: false, maxFull: true, stageHeights: [520, 520],
+    body: appWindowBody('HAS Lathe', 'https://has.tools/apps/lathe/')
+  },
+
   manifesto: {
     title: 'manifesto.txt',
     width: 360, x: 280, y: 170, open: false, file: 'manifesto.txt',
@@ -190,7 +205,8 @@ var ICONS = [
   { id: 'hastools',  glyph: '🛠', label: 'has.tools', col: 1 },
   { id: 'doc',       glyph: '🗎', label: 'about_me.txt', col: 1 },
   { id: 'ig', glyph: '📷', label: 'instagram', href: 'https://www.instagram.com/has_projects/', col: 1 },
-  { id: 'yt', glyph: '📺', label: 'youtube', href: 'https://www.youtube.com/@has.studio', col: 1 }
+  { id: 'yt', glyph: '📺', label: 'youtube', href: 'https://www.youtube.com/@has.studio', col: 1 },
+  { id: 'lathe', glyph: '🏺', label: 'HAS Lathe', col: 2 }
 ];
 
 /* Mobile feed (≤820px): the same windows rendered as stacked cards, in this

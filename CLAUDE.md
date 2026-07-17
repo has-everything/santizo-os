@@ -21,6 +21,8 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 
 **Add a desktop shortcut to an external link**: add an `ICONS` entry with `href` instead of a window id (e.g. the instagram/youtube icons). `col: 1` places an icon one column left of the rightmost; columns are bottom-anchored.
 
+**Embed a has.tools app as a window** (e.g. HAS Lathe): add a `WINDOWS` entry with `body: appWindowBody(name, url)`, `maxFull: true`, `stageHeights: [h, h]`, plus an `ICONS` entry. has.tools sends no frame-blocking headers, so the apps embed fine; the iframe is lazy (loads on first open) and the body includes an "Open full app ↗" row. Desktop-only: leave app windows out of `MOBILE_FEED` (the apps gate small screens themselves).
+
 **Keyboard**: everything clickable is reachable by keyboard (`pressable()` helper adds role/tabindex/Enter/Space); window chrome and gallery arrows are real `<button>`s; Esc closes the topmost window on desktop.
 
 **Anything with `data-open="<id>"`** (menu items, rows inside window bodies) opens that window on click.
