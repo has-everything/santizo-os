@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://santizo.com/sitemap.xml

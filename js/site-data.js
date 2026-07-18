@@ -234,7 +234,7 @@ var WINDOWS = {
    id opens that WINDOWS key; href instead opens an external link (shortcut).
    col: 1 puts the icon one column further left (default 0 = rightmost). */
 var ICONS = [
-  { id: 'bm',        glyph: '🔥', label: 'burning_man' },
+  { id: 'bm',        glyph: '🔥', label: 'burning_man_pics' },
   { id: 'manifesto', glyph: '🗎', label: 'manifesto.txt' },
   { id: 'toolbox',   glyph: '🗎', label: 'toolbox.txt' },
   { id: 'readme',    glyph: '🗎', label: 'README.txt' },
