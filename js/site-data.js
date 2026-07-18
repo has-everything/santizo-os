@@ -196,7 +196,7 @@ var WINDOWS = {
     title: 'system_specs.txt',
     width: 400, x: 340, y: 210, open: false, file: 'system_specs.txt',
     body:
-      '<div class="file-text">hector_santizo · system specs ✷<br><br>3D &amp; design &nbsp;&nbsp;Cinema 4D · Plasticity<br>real-time &nbsp;&nbsp;&nbsp;&nbsp;Unity · Unreal Engine<br>code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C# · JavaScript · Python<br>XR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hand tracking · MediaPipe · VR/AR<br>web &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;three.js · generative AI</div>' + FILE_HINT
+      '<div class="file-text">hector_santizo · system specs ✷<br><br>3D &amp; design &nbsp;&nbsp;Cinema 4D · Plasticity<br>motion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After Effects<br>real-time &nbsp;&nbsp;&nbsp;&nbsp;Unity · Unreal Engine<br>code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C# · JavaScript · Python<br>XR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hand tracking · MediaPipe · VR/AR<br>AI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Claude Code · ChatGPT · Gemini<br>web &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;three.js</div>' + FILE_HINT
   },
 
   readme: {
