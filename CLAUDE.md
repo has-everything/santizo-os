@@ -39,10 +39,12 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 
 - The `xr` and `anim` windows are clip players (`XR_VIDEOS`/`ANIM_VIDEOS` in site-data.js; `clipPlayerBody(ns, list)` builds the markup, `initClipPlayer(ns, list)` in both renderers wires it; only the current clip's iframe loads). Add a clip = add a `{title, tag, src}` entry.
 - Vimeo reel id 350908783 is the current reel (also in `ANIM_VIDEOS` as HAS CG Reel); swap when recut.
-- `PHOTOS` hotlinks images from the old santizo.com; copy them into `img/` here before the old site goes away.
 - The has.tools widget stage is a text placeholder; swap the `.stage-note` div for an `<img>` (e.g. `img/hastools-card.png`) when a real capture exists.
-- Canonical/OG URLs point at `https://santizo.com/`, which still serves the old site. Correct once the domain moves here; until then the vercel.app URL intentionally defers to it.
-- No custom domain yet: when ready, point santizo.com at the Vercel project.
+- Old santizo.com page URLs (hello.html, animation.html, xr.html, images/) will 404 once the domain points here; add redirects in a vercel.json if that ever matters.
+
+## Deep links
+
+`index.html?open=<window id>` opens that window (desktop) or scrolls to and expands that card (mobile), e.g. `?open=anim`, `?open=bm`. boring.html uses these for its work links.
 
 ## Preview
 

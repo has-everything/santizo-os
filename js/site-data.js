@@ -21,7 +21,7 @@
 
 var PHOTOS = [];
 for (var i = 2; i <= 19; i++) {
-  PHOTOS.push('https://santizo.com/images/hector_santizo_burning_man_' + String(i).padStart(3, '0') + '.jpg');
+  PHOTOS.push('img/hector_santizo_burning_man_' + String(i).padStart(3, '0') + '.jpg');
 }
 
 var TRASH_NAME = 'bad ideas';

@@ -60,6 +60,10 @@ var SantizoMobile = {
       pressable(el, function () { reveal(el.getAttribute('data-open')); });
     });
 
+    /* ?open=<id> deep-links a card (used by boring.html and shareable) */
+    var openParam = new URLSearchParams(location.search).get('open');
+    if (openParam && document.getElementById('card-' + openParam)) reveal(openParam);
+
     /* clip players (xr, anim, ...) */
     function initClipPlayer(ns, videos) {
       var frame = document.getElementById(ns + 'Frame');

@@ -459,6 +459,10 @@
   initClipPlayer('xr', XR_VIDEOS);
   initClipPlayer('anim', ANIM_VIDEOS);
   fitToDesktop();
+
+  /* ?open=<id> deep-links a window (used by boring.html and shareable) */
+  var openParam = new URLSearchParams(location.search).get('open');
+  if (openParam && state.wins[openParam]) openWin(openParam);
   /* the desktop can measure 0 wide until the page is actually displayed */
   if (!desk.offsetWidth && 'ResizeObserver' in window) {
     var ro = new ResizeObserver(function () {
