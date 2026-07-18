@@ -42,6 +42,10 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 - The has.tools widget stage is a text placeholder; swap the `.stage-note` div for an `<img>` (e.g. `img/hastools-card.png`) when a real capture exists.
 - Old santizo.com page URLs (hello.html, animation.html, xr.html, images/) will 404 once the domain points here; add redirects in a vercel.json if that ever matters.
 
+## Analytics
+
+Vercel Web Analytics (cookieless, no consent banner). Snippet in index.html and boring.html. `openWin` (desktop) and `setCollapsed` (mobile) fire a custom `open_window` event with the window id, so the dashboard shows which windows visitors actually open — the whole OS is one URL, so plain pageviews alone would be thin. Must be enabled in the Vercel dashboard (Project → Analytics) for `/_vercel/insights/script.js` to serve; until then the shim harmlessly queues.
+
 ## Deep links
 
 `index.html?open=<window id>` opens that window (desktop) or scrolls to and expands that card (mobile), e.g. `?open=anim`, `?open=bm`. boring.html uses these for its work links.

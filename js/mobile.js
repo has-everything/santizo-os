@@ -18,9 +18,14 @@ var SantizoMobile = {
     }
 
     function setCollapsed(card, collapsed) {
+      var wasCollapsed = card.classList.contains('collapsed');
       card.classList.toggle('collapsed', collapsed);
       card.querySelector('.card-toggle').textContent = collapsed ? '+' : '–';
       card.querySelector('.card-bar').setAttribute('aria-expanded', String(!collapsed));
+      /* analytics: parity with desktop's open_window (fires on expand) */
+      if (wasCollapsed && !collapsed && window.va) {
+        window.va('event', { name: 'open_window', id: card.id.replace('card-', '') });
+      }
     }
 
     MOBILE_FEED.forEach(function (item) {

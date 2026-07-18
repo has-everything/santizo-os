@@ -176,10 +176,14 @@
 
   function openWin(id) {
     if (state.deleted[id]) return;
+    var wasOpen = state.wins[id].open;
     state.wins[id].open = true;
     state.wins[id].min = false;
     applyWin(id);
     focus(id);
+    /* analytics: which windows people actually open (the whole OS is one URL,
+       so this is the real signal). No-op if Web Analytics isn't loaded. */
+    if (!wasOpen && window.va) window.va('event', { name: 'open_window', id: id });
     /* iframes load on open: apps on first open (at the window's real size),
        and anything a previous close unloaded boots back up here */
     winEls[id].querySelectorAll('iframe[data-src]').forEach(function (f) {
