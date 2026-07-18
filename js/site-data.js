@@ -185,6 +185,12 @@ var WINDOWS = {
     body: appWindowBody('HAS Cabinet', 'https://has.tools/apps/cabinet/')
   },
 
+  gallery: {
+    title: 'HAS Gallery · gallery designer',
+    width: 960, x: 320, y: 180, open: false, maxFull: true, stageHeights: [520, 520],
+    body: appWindowBody('HAS Gallery', 'https://has.tools/apps/gallery/')
+  },
+
   manifesto: {
     title: 'manifesto.txt',
     width: 360, x: 280, y: 170, open: false, file: 'manifesto.txt',
@@ -222,7 +228,8 @@ var ICONS = [
   { id: 'yt', glyph: '📺', label: 'youtube', href: 'https://www.youtube.com/@has.studio', col: 1 },
   { id: 'lathe', glyph: '🏺', label: 'HAS Lathe', col: 2 },
   { id: 'dither', glyph: '🎛', label: 'HAS Dither', col: 2 },
-  { id: 'cabinet', glyph: '🗄', label: 'HAS Cabinet', col: 2 }
+  { id: 'cabinet', glyph: '🗄', label: 'HAS Cabinet', col: 2 },
+  { id: 'gallery', glyph: '🖼', label: 'HAS Gallery', col: 2 }
 ];
 
 /* Mobile feed (≤820px): the same windows rendered as stacked cards, in this
