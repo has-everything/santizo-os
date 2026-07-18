@@ -92,7 +92,7 @@ var WINDOWS = {
   /* defined right after reel so it stacks above it but under about/work */
   hastools: {
     title: 'has.tools · free creative tools',
-    width: 640, x: 740, y: 300, dockBottom: 580, open: true, stageHeights: [300, 470], maxFull: true,
+    width: 640, x: 740, y: 300, dockBottom: 580, open: false, stageHeights: [300, 470], maxFull: true,
     body:
       '<div class="stage"><div class="stage-note">has.tools · showcase still coming soon</div></div>' +
       '<div class="widget-caption">Free browser tools for motion designers, 3D artists, and creative coders. Splay · HAS Lathe · HAS Dither · more.</div>' +
@@ -104,8 +104,9 @@ var WINDOWS = {
     width: 400, x: 730, y: 110, open: true, dockRight: true,
     body:
       '<div class="prose">' +
-        '<div class="headline">Hector Santizo, creative technologist</div>' +
-        '<div class="blurb">3D motion, XR prototypes, and tools for creative people. Complex in, clear out.</div>' +
+        '<div class="headline">Hector Santizo</div>' +
+        '<div class="role">3D Motion Designer &amp; Creative Technologist</div>' +
+        '<div class="blurb">I design and animate in 3D, build real-time and XR experiences in Unity, and make free tools for creative people. Los Angeles. Complex in, clear out.</div>' +
         '<div class="btn-row">' +
           '<a class="btn" href="mailto:hector@santizo.com">Email</a>' +
         '</div>' +
@@ -198,11 +199,11 @@ var WINDOWS = {
       '<div class="file-text">00:04, particle swarm opener<br>00:19, hand-tracked UI grab<br>00:31, Unity real-time env<br>00:47, playa time-lapse<br>TODO: recut for 2027, tighter.</div>' + FILE_HINT
   },
 
-  packing: {
-    title: 'playa_packing.txt',
-    width: 360, x: 360, y: 290, open: false, file: 'playa_packing.txt',
+  readme: {
+    title: 'README.txt',
+    width: 380, x: 720, y: 440, open: true, file: 'README.txt',
     body:
-      '<div class="file-text">☑ goggles + dust mask<br>☑ camera, 3 batteries, tripod<br>☑ LED strips (programmable)<br>☐ spare SD cards (buy!)<br>☐ leave laptop at home. really.</div>' + FILE_HINT
+      '<div class="file-text">welcome to SantizoOS ✷<br><br>☐ drag any window by its bar (yes, this one)<br>☐ the ❐ button makes videos huge<br>☐ menu up top: reel, work, photos<br>☐ 🏺 🎛 🗄 are real apps, click one<br>☐ drag a file onto the trash, it&#39;s fine<br><br>done? close me with the ✕ up top ↖</div>'
   }
 
 };
@@ -214,7 +215,7 @@ var ICONS = [
   { id: 'bm',        glyph: '🔥', label: 'burning_man' },
   { id: 'manifesto', glyph: '🗎', label: 'manifesto.txt' },
   { id: 'notes',     glyph: '🗎', label: 'reel_notes.md' },
-  { id: 'packing',   glyph: '🗎', label: 'playa_packing.txt' },
+  { id: 'readme',    glyph: '🗎', label: 'README.txt' },
   { id: 'hastools',  glyph: '🛠', label: 'has.tools', col: 1 },
   { id: 'doc',       glyph: '🗎', label: 'about_me.txt', col: 1 },
   { id: 'ig', glyph: '📷', label: 'instagram', href: 'https://www.instagram.com/has_projects/', col: 1 },
@@ -237,6 +238,7 @@ var MOBILE_FEED = [
   { id: 'xr', collapsed: true },
   { id: 'manifesto', collapsed: true },
   { id: 'notes', collapsed: true },
-  { id: 'packing', collapsed: true },
+  /* readme is desktop-only: its instructions (drag, maximize, trash) don't
+     apply to the mobile feed */
   { id: 'trash', collapsed: true }
 ];

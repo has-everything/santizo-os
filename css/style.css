@@ -64,6 +64,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .prose{padding:18px;font-family:'Archivo',system-ui,sans-serif}
 .prose-tight{padding:16px}
 .headline{font-size:28px;font-weight:900;line-height:1.08;letter-spacing:-.02em;text-transform:uppercase;font-stretch:80%}
+.role{font-size:15px;font-weight:900;line-height:1.2;text-transform:uppercase;font-stretch:80%;margin-top:8px}
 .proj-title{font-size:20px;font-weight:900;text-transform:uppercase}
 .blurb{font-size:13px;line-height:1.6;margin-top:12px;color:#333}
 .proj-blurb{margin-top:6px}
