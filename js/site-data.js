@@ -229,7 +229,7 @@ var ICONS = [
   { id: 'lathe', glyph: '🏺', label: 'HAS Lathe', col: 2 },
   { id: 'dither', glyph: '🎛', label: 'HAS Dither', col: 2 },
   { id: 'cabinet', glyph: '🗄', label: 'HAS Cabinet', col: 2 },
-  { id: 'gallery', glyph: '🖼', label: 'HAS Gallery', col: 2 }
+  { id: 'gallery', glyph: '🏛', label: 'HAS Gallery', col: 2 }
 ];
 
 /* Mobile feed (≤820px): the same windows rendered as stacked cards, in this
