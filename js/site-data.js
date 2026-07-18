@@ -45,11 +45,12 @@ function clipPlayerBody(ns, videos) {
 }
 
 /* App windows: a has.tools app running inside the OS in an iframe, with an
-   escape-hatch row to the real thing. The iframe is lazy, so the app only
-   loads when its window is first opened. Desktop-only: don't add app windows
-   to MOBILE_FEED (the apps have their own mobile gates; phones use links). */
+   escape-hatch row to the real thing. data-src (not src): the engine loads
+   the app only when the window first opens, at the window's real size, so
+   the app's own mobile gate doesn't misfire from a hidden zero-width load.
+   Desktop-only: don't add app windows to MOBILE_FEED (phones use links). */
 function appWindowBody(name, src) {
-  return '<div class="stage stage-app"><iframe src="' + src + '" loading="lazy" allow="fullscreen; clipboard-write" title="' + name + '"></iframe></div>' +
+  return '<div class="stage stage-app"><iframe data-src="' + src + '" allow="fullscreen; clipboard-write" title="' + name + '"></iframe></div>' +
     '<a class="row row-first" href="' + src + '" target="_blank" rel="noopener"><span>↗ Open full app</span><span class="dim">' + src.replace('https://', '') + '</span></a>';
 }
 
@@ -167,8 +168,20 @@ var WINDOWS = {
 
   lathe: {
     title: 'HAS Lathe · 3D vessel modeler',
-    width: 900, x: 200, y: 90, open: false, maxFull: true, stageHeights: [520, 520],
+    width: 960, x: 200, y: 90, open: false, maxFull: true, stageHeights: [520, 520],
     body: appWindowBody('HAS Lathe', 'https://has.tools/apps/lathe/')
+  },
+
+  dither: {
+    title: 'HAS Dither · node-based dithering',
+    width: 960, x: 240, y: 120, open: false, maxFull: true, stageHeights: [520, 520],
+    body: appWindowBody('HAS Dither', 'https://has.tools/apps/dither/')
+  },
+
+  cabinet: {
+    title: 'HAS Cabinet · parametric shelving',
+    width: 960, x: 280, y: 150, open: false, maxFull: true, stageHeights: [520, 520],
+    body: appWindowBody('HAS Cabinet', 'https://has.tools/apps/cabinet/')
   },
 
   manifesto: {
@@ -206,7 +219,9 @@ var ICONS = [
   { id: 'doc',       glyph: '🗎', label: 'about_me.txt', col: 1 },
   { id: 'ig', glyph: '📷', label: 'instagram', href: 'https://www.instagram.com/has_projects/', col: 1 },
   { id: 'yt', glyph: '📺', label: 'youtube', href: 'https://www.youtube.com/@has.studio', col: 1 },
-  { id: 'lathe', glyph: '🏺', label: 'HAS Lathe', col: 2 }
+  { id: 'lathe', glyph: '🏺', label: 'HAS Lathe', col: 2 },
+  { id: 'dither', glyph: '🎛', label: 'HAS Dither', col: 2 },
+  { id: 'cabinet', glyph: '🗄', label: 'HAS Cabinet', col: 2 }
 ];
 
 /* Mobile feed (≤820px): the same windows rendered as stacked cards, in this

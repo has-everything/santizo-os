@@ -180,6 +180,12 @@
     state.wins[id].min = false;
     applyWin(id);
     focus(id);
+    /* app iframes load on first open, once the window has its real size */
+    var lazyFrame = winEls[id].querySelector('iframe[data-src]');
+    if (lazyFrame) {
+      lazyFrame.src = lazyFrame.getAttribute('data-src');
+      lazyFrame.removeAttribute('data-src');
+    }
   }
 
   function closeWin(id) {
