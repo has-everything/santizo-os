@@ -180,17 +180,26 @@
     state.wins[id].min = false;
     applyWin(id);
     focus(id);
-    /* app iframes load on first open, once the window has its real size */
-    var lazyFrame = winEls[id].querySelector('iframe[data-src]');
-    if (lazyFrame) {
-      lazyFrame.src = lazyFrame.getAttribute('data-src');
-      lazyFrame.removeAttribute('data-src');
-    }
+    /* iframes load on open: apps on first open (at the window's real size),
+       and anything a previous close unloaded boots back up here */
+    winEls[id].querySelectorAll('iframe[data-src]').forEach(function (f) {
+      f.src = f.getAttribute('data-src');
+      f.removeAttribute('data-src');
+    });
   }
 
+  /* Close quits: any iframe (app, video) is unloaded so its memory, GPU
+     context, and audio are actually released; the URL is kept in data-src
+     so reopening cold-boots it. Minimize keeps the app alive instead. */
   function closeWin(id) {
     state.wins[id].open = false;
     applyWin(id);
+    winEls[id].querySelectorAll('iframe[src]').forEach(function (f) {
+      if (f.src && f.src !== 'about:blank') {
+        f.setAttribute('data-src', f.src);
+        f.src = 'about:blank';
+      }
+    });
   }
 
   function toggleMin(id) {
