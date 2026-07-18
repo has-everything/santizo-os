@@ -104,7 +104,7 @@ var WINDOWS = {
     width: 400, x: 730, y: 110, open: true, dockRight: true,
     body:
       '<div class="prose">' +
-        '<div class="headline">Hector Santizo</div>' +
+        '<div class="headline">Hector Augusto Santizo</div>' +
         '<div class="role">3D Motion Designer &amp; Creative Technologist</div>' +
         '<div class="blurb">I design and animate in 3D, build real-time and XR experiences in Unity, and make creative applications. Los Angeles. Complex in, clear out.</div>' +
         '<div class="btn-row">' +
@@ -158,7 +158,7 @@ var WINDOWS = {
     title: 'playa_stills · Burning Man',
     width: 480, x: 220, y: 110, open: false, stageHeights: [310, 470], maxFull: true,
     body:
-      '<div class="stage"><img id="photoImg" alt="Burning Man photograph by Hector Santizo" loading="lazy"></div>' +
+      '<div class="stage"><img id="photoImg" alt="Burning Man photograph by Hector Augusto Santizo" loading="lazy"></div>' +
       '<div class="gallery-bar">' +
         '<button type="button" class="nav-btn" id="photoPrev" aria-label="Previous photo">◀</button>' +
         '<button type="button" class="nav-btn" id="photoNext" aria-label="Next photo">▶</button>' +
@@ -192,11 +192,11 @@ var WINDOWS = {
       '<div class="file-text">1. prototype &gt; slide deck, you see it working<br>2. weird ideas welcome, shipped ideas better<br>3. make tech feel human, every frame on purpose<br>4. clear beats clever, simple beats optimal<br>5. when in doubt, add dust ✷</div>' + FILE_HINT
   },
 
-  specs: {
-    title: 'system_specs.txt',
-    width: 400, x: 340, y: 210, open: false, file: 'system_specs.txt',
+  toolbox: {
+    title: 'toolbox.txt',
+    width: 400, x: 340, y: 210, open: false, file: 'toolbox.txt',
     body:
-      '<div class="file-text">hector_santizo · system specs ✷<br><br>3D &amp; design &nbsp;&nbsp;Cinema 4D · Plasticity<br>motion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After Effects<br>real-time &nbsp;&nbsp;&nbsp;&nbsp;Unity · Unreal Engine<br>code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C# · JavaScript · Python<br>XR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hand tracking · MediaPipe · VR/AR<br>AI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Claude Code · ChatGPT · Gemini<br>web &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;three.js</div>' + FILE_HINT
+      '<div class="file-text">hector_augusto_santizo · toolbox ✷<br><br>3D &amp; design &nbsp;&nbsp;Cinema 4D · Plasticity<br>motion &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;After Effects · Premiere<br>real-time &nbsp;&nbsp;&nbsp;&nbsp;Unity · Unreal Engine<br>code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C# · JavaScript · Python<br>XR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hand tracking · MediaPipe · VR/AR<br>AI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Claude Code · ChatGPT · Gemini<br>web &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;three.js · WebGPU</div>' + FILE_HINT
   },
 
   readme: {
@@ -214,7 +214,7 @@ var WINDOWS = {
 var ICONS = [
   { id: 'bm',        glyph: '🔥', label: 'burning_man' },
   { id: 'manifesto', glyph: '🗎', label: 'manifesto.txt' },
-  { id: 'specs',     glyph: '🗎', label: 'system_specs.txt' },
+  { id: 'toolbox',   glyph: '🗎', label: 'toolbox.txt' },
   { id: 'readme',    glyph: '🗎', label: 'README.txt' },
   { id: 'hastools',  glyph: '🛠', label: 'has.tools', col: 1 },
   { id: 'doc',       glyph: '🗎', label: 'about_me.txt', col: 1 },
@@ -231,7 +231,7 @@ var MOBILE_FEED = [
   { id: 'reel' },
   { id: 'about' },
   { id: 'doc', collapsed: true },
-  { id: 'specs', collapsed: true },
+  { id: 'toolbox', collapsed: true },
   { id: 'work' },
   { id: 'hastools' },
   { id: 'bm' },
