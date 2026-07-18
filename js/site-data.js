@@ -189,7 +189,7 @@ var WINDOWS = {
     title: 'manifesto.txt',
     width: 360, x: 280, y: 170, open: false, file: 'manifesto.txt',
     body:
-      '<div class="file-text">1. prototype &gt; slide deck, you see it working<br>2. weird ideas welcome, shipped ideas better<br>3. make tech feel human, every frame on purpose<br>4. clear beats clever, simple beats optimal<br>5. when in doubt, add dust ✷</div>' + FILE_HINT
+      '<div class="file-text">1. show a working prototype, it speaks for itself<br>2. weird ideas welcome, shipped ideas better<br>3. make tech inspire people, every frame on purpose<br>4. clear beats clever, simple beats optimal<br>5. when in doubt, add dust ✷</div>' + FILE_HINT
   },
 
   toolbox: {
