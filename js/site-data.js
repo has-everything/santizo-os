@@ -106,7 +106,7 @@ var WINDOWS = {
       '<div class="prose">' +
         '<div class="headline">Hector Santizo</div>' +
         '<div class="role">3D Motion Designer &amp; Creative Technologist</div>' +
-        '<div class="blurb">I design and animate in 3D, build real-time and XR experiences in Unity, and make free tools for creative people. Los Angeles. Complex in, clear out.</div>' +
+        '<div class="blurb">I design and animate in 3D, build real-time and XR experiences in Unity, and make creative applications. Los Angeles. Complex in, clear out.</div>' +
         '<div class="btn-row">' +
           '<a class="btn" href="mailto:hector@santizo.com">Email</a>' +
         '</div>' +
@@ -192,18 +192,11 @@ var WINDOWS = {
       '<div class="file-text">1. ship weird ideas that inspire ✷<br>2. prototype &gt; slide deck: build to inspire<br>3. make tech feel human, make it inspire<br>4. every frame on purpose, every frame to inspire<br>5. when in doubt, add dust and inspire</div>' + FILE_HINT
   },
 
-  notes: {
-    title: 'reel_notes.md',
-    width: 360, x: 320, y: 230, open: false, file: 'reel_notes.md',
-    body:
-      '<div class="file-text">00:04, particle swarm opener<br>00:19, hand-tracked UI grab<br>00:31, Unity real-time env<br>00:47, playa time-lapse<br>TODO: recut for 2027, tighter.</div>' + FILE_HINT
-  },
-
   readme: {
     title: 'README.txt',
     width: 380, x: 720, y: 440, open: true, file: 'README.txt',
     body:
-      '<div class="file-text">welcome to SantizoOS ✷<br><br>☐ drag any window by its bar (yes, this one)<br>☐ the ❐ button makes videos huge<br>☐ menu up top: reel, work, photos<br>☐ 🏺 🎛 🗄 are real apps, click one<br>☐ drag a file onto the trash, it&#39;s fine<br><br>done? close me with the ✕ up top ↖</div>'
+      '<div class="file-text">welcome to my site ✷<br><br>☐ drag any window by its bar (yes, this one)<br>☐ the ❐ button makes videos huge<br>☐ menu up top: reel, work, photos<br>☐ 🏺 🎛 🗄 are real apps, click one<br>☐ drag a file onto the trash, it&#39;s fine<br><br>done? close me with the ✕ up top ↖</div>'
   }
 
 };
@@ -214,7 +207,6 @@ var WINDOWS = {
 var ICONS = [
   { id: 'bm',        glyph: '🔥', label: 'burning_man' },
   { id: 'manifesto', glyph: '🗎', label: 'manifesto.txt' },
-  { id: 'notes',     glyph: '🗎', label: 'reel_notes.md' },
   { id: 'readme',    glyph: '🗎', label: 'README.txt' },
   { id: 'hastools',  glyph: '🛠', label: 'has.tools', col: 1 },
   { id: 'doc',       glyph: '🗎', label: 'about_me.txt', col: 1 },
@@ -237,7 +229,6 @@ var MOBILE_FEED = [
   { id: 'anim', collapsed: true },
   { id: 'xr', collapsed: true },
   { id: 'manifesto', collapsed: true },
-  { id: 'notes', collapsed: true },
   /* readme is desktop-only: its instructions (drag, maximize, trash) don't
      apply to the mobile feed */
   { id: 'trash', collapsed: true }
