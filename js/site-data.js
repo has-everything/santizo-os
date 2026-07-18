@@ -192,6 +192,13 @@ var WINDOWS = {
       '<div class="file-text">1. prototype &gt; slide deck, you see it working<br>2. weird ideas welcome, shipped ideas better<br>3. make tech feel human, every frame on purpose<br>4. clear beats clever, simple beats optimal<br>5. when in doubt, add dust ✷</div>' + FILE_HINT
   },
 
+  specs: {
+    title: 'system_specs.txt',
+    width: 400, x: 340, y: 210, open: false, file: 'system_specs.txt',
+    body:
+      '<div class="file-text">hector_santizo · system specs ✷<br><br>3D &amp; design &nbsp;&nbsp;Cinema 4D · Plasticity<br>real-time &nbsp;&nbsp;&nbsp;&nbsp;Unity · Unreal Engine<br>code &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C# · JavaScript · Python<br>XR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hand tracking · MediaPipe · VR/AR<br>web &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;three.js · generative AI</div>' + FILE_HINT
+  },
+
   readme: {
     title: 'README.txt',
     width: 380, x: 720, y: 440, open: true, file: 'README.txt',
@@ -207,6 +214,7 @@ var WINDOWS = {
 var ICONS = [
   { id: 'bm',        glyph: '🔥', label: 'burning_man' },
   { id: 'manifesto', glyph: '🗎', label: 'manifesto.txt' },
+  { id: 'specs',     glyph: '🗎', label: 'system_specs.txt' },
   { id: 'readme',    glyph: '🗎', label: 'README.txt' },
   { id: 'hastools',  glyph: '🛠', label: 'has.tools', col: 1 },
   { id: 'doc',       glyph: '🗎', label: 'about_me.txt', col: 1 },
@@ -223,6 +231,7 @@ var MOBILE_FEED = [
   { id: 'reel' },
   { id: 'about' },
   { id: 'doc', collapsed: true },
+  { id: 'specs', collapsed: true },
   { id: 'work' },
   { id: 'hastools' },
   { id: 'bm' },
