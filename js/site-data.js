@@ -191,6 +191,18 @@ var WINDOWS = {
     body: appWindowBody('HAS Gallery', 'https://has.tools/apps/gallery/')
   },
 
+  /* desktop-only, like the apps it introduces (hidden from the mobile menu) */
+  help: {
+    title: 'Help · the apps',
+    width: 500, x: 500, y: 160, open: false,
+    body:
+      '<div class="widget-caption">Four of my apps run right here on the desktop. Click one to open it:</div>' +
+      '<span class="row row-first" data-open="lathe"><span>🏺 HAS Lathe</span><span class="dim">spin a profile into a 3D vessel</span></span>' +
+      '<span class="row" data-open="dither"><span>🎛 HAS Dither</span><span class="dim">node-based image dithering</span></span>' +
+      '<span class="row" data-open="cabinet"><span>🗄 HAS Cabinet</span><span class="dim">parametric cabinets &amp; shelves</span></span>' +
+      '<span class="row" data-open="gallery"><span>📐 HAS Gallery</span><span class="dim">plan a gallery, hang art in 3D</span></span>'
+  },
+
   manifesto: {
     title: 'manifesto.txt',
     width: 360, x: 280, y: 170, open: false, file: 'manifesto.txt',
@@ -209,7 +221,7 @@ var WINDOWS = {
     title: 'README.txt',
     width: 380, x: 720, y: 440, open: true, file: 'README.txt',
     body:
-      '<div class="file-text">welcome to my site ✷<br><br>☐ drag any window by its bar (yes, this one)<br>☐ the ❐ button makes videos huge<br>☐ menu up top: reel, work, photos<br>☐ 🏺 🎛 🗄 are real apps, click one<br>☐ drag a file onto the trash, it&#39;s fine<br><br>done? close me with the ✕ up top ↖</div>'
+      '<div class="file-text">welcome to my site ✷<br><br>☐ drag any window by its bar (yes, this one)<br>☐ the ❐ button makes videos huge<br>☐ menu up top: reel, work, photos<br>☐ 🏺 🎛 🗄 📐 are real apps, click one<br>☐ drag a file onto the trash, it&#39;s fine<br><br>done? close me with the ✕ up top ↖</div>'
   }
 
 };

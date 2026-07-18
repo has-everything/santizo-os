@@ -63,8 +63,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* prose windows (about / projects) */
 .prose{padding:18px;font-family:'Archivo',system-ui,sans-serif}
 .prose-tight{padding:16px}
-.headline{font-size:28px;font-weight:900;line-height:1.08;letter-spacing:-.02em;text-transform:uppercase;font-stretch:80%}
-.role{font-size:15px;font-weight:900;line-height:1.2;text-transform:uppercase;font-stretch:80%;margin-top:8px}
+.headline{font-size:28px;font-weight:700;line-height:1.08;letter-spacing:-.01em;text-transform:uppercase;font-stretch:80%}
+.role{font-size:14px;font-weight:600;line-height:1.2;text-transform:uppercase;font-stretch:80%;margin-top:8px}
 .proj-title{font-size:20px;font-weight:900;text-transform:uppercase}
 .blurb{font-size:13px;line-height:1.6;margin-top:12px;color:#333}
 .proj-blurb{margin-top:6px}
@@ -201,6 +201,9 @@ body.mode-mobile .gallery-bar{flex-wrap:wrap}
 body.mode-mobile .headline{font-size:24px}
 /* no window focus/drag on mobile; the shield would only block feed scrolling */
 body.mode-mobile .frame-shield{display:none}
+
+/* the apps (and their Help window) are desktop-only */
+body.mode-mobile .menu-help{display:none}
 
 @media (max-width:480px){
   body.mode-mobile #clock{display:none}
