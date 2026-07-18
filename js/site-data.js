@@ -189,7 +189,7 @@ var WINDOWS = {
     title: 'manifesto.txt',
     width: 360, x: 280, y: 170, open: false, file: 'manifesto.txt',
     body:
-      '<div class="file-text">1. ship weird ideas that inspire ✷<br>2. prototype &gt; slide deck: build to inspire<br>3. make tech feel human, make it inspire<br>4. every frame on purpose, every frame to inspire<br>5. when in doubt, add dust and inspire</div>' + FILE_HINT
+      '<div class="file-text">1. prototype &gt; slide deck, you see it working<br>2. weird ideas welcome, shipped ideas better<br>3. make tech feel human, every frame on purpose<br>4. clear beats clever, simple beats optimal<br>5. when in doubt, add dust ✷</div>' + FILE_HINT
   },
 
   readme: {
