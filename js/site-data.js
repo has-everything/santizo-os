@@ -158,7 +158,7 @@ var WINDOWS = {
     title: 'playa_stills · Burning Man',
     width: 480, x: 220, y: 110, open: false, stageHeights: [310, 470], maxFull: true,
     body:
-      '<div class="stage"><img id="photoImg" alt="Burning Man photograph by Hector Augusto Santizo" loading="lazy"></div>' +
+      '<div class="stage stage-photos"><img id="photoImg" alt="Burning Man photograph by Hector Augusto Santizo" loading="lazy"></div>' +
       '<div class="gallery-bar">' +
         '<button type="button" class="nav-btn" id="photoPrev" aria-label="Previous photo">◀</button>' +
         '<button type="button" class="nav-btn" id="photoNext" aria-label="Next photo">▶</button>' +
