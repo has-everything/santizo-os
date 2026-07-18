@@ -93,7 +93,15 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .row-first{border-top:1px solid var(--ink)}
 .row-slim{padding:8px 14px;font-size:12px}
 .row-active{background:var(--ink);color:var(--paper)}
+.row-flush{border-bottom:none;padding-bottom:6px}
 .dim{opacity:.6}
+
+/* help window: guide paragraph under each app row */
+.help-guide{
+  padding:0 16px 12px;border-bottom:1px solid var(--ink);
+  font-family:'Archivo',system-ui,sans-serif;font-size:13px;line-height:1.5;color:#333;
+}
+.help-guide:last-child{border-bottom:none}
 
 /* photo gallery / media stages */
 .stage{background:var(--ink);border-bottom:2px solid var(--ink);height:310px}

@@ -194,13 +194,17 @@ var WINDOWS = {
   /* desktop-only, like the apps it introduces (hidden from the mobile menu) */
   help: {
     title: 'Help · the apps',
-    width: 500, x: 500, y: 160, open: false,
+    width: 520, x: 500, y: 140, open: false,
     body:
-      '<div class="widget-caption">Four of my apps run right here on the desktop. Click one to open it:</div>' +
-      '<span class="row row-first" data-open="lathe"><span>🏺 HAS Lathe</span><span class="dim">spin a profile into a 3D vessel</span></span>' +
-      '<span class="row" data-open="dither"><span>🎛 HAS Dither</span><span class="dim">node-based image dithering</span></span>' +
-      '<span class="row" data-open="cabinet"><span>🗄 HAS Cabinet</span><span class="dim">parametric cabinets &amp; shelves</span></span>' +
-      '<span class="row" data-open="gallery"><span>📐 HAS Gallery</span><span class="dim">plan a gallery, hang art in 3D</span></span>'
+      '<div class="widget-caption">Four of my apps run right here on the desktop. Click a title to open it:</div>' +
+      '<span class="row row-first row-flush" data-open="lathe"><span>🏺 HAS Lathe</span><span class="dim">open</span></span>' +
+      '<div class="help-guide">Draw a profile curve and it spins into a 3D vessel in real time. Export GLB, glTF, or OBJ for your scenes.</div>' +
+      '<span class="row row-flush" data-open="dither"><span>🎛 HAS Dither</span><span class="dim">open</span></span>' +
+      '<div class="help-guide">Drop in an image and wire up nodes to build a dithering effect. Export the result as PNG.</div>' +
+      '<span class="row row-flush" data-open="cabinet"><span>🗄 HAS Cabinet</span><span class="dim">open</span></span>' +
+      '<div class="help-guide">Design cabinets and shelving with draggable boards and presets. Get a cut list, GLB, or STEP file.</div>' +
+      '<span class="row row-flush" data-open="gallery"><span>📐 HAS Gallery</span><span class="dim">open</span></span>' +
+      '<div class="help-guide">Draw a floor plan in 2D, walk it as a 3D gallery, and hang your art. Export PNG, glTF, or GLB.</div>'
   },
 
   manifesto: {
