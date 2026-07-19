@@ -105,8 +105,8 @@ var WINDOWS = {
     body:
       '<div class="prose">' +
         '<div class="headline">Hector Augusto Santizo</div>' +
-        '<div class="role">3D Motion Designer &amp; Creative Technologist</div>' +
-        '<div class="blurb">I design and animate in 3D, build real-time and XR experiences in Unity, and make creative applications. Los Angeles. Complex in, clear out.</div>' +
+        '<div class="role">Creative Technologist · 3D Motion Designer · Tool Builder</div>' +
+        '<div class="blurb">I turn complex ideas into 3D motion, interactive systems, and useful creative tools. Some become client work. Some become has.tools. All begin with a problem worth solving. Los Angeles. Complex in, clear out.</div>' +
         '<div class="btn-row">' +
           '<a class="btn" href="mailto:hector@santizo.com">Email</a>' +
         '</div>' +
@@ -117,7 +117,7 @@ var WINDOWS = {
     title: 'about_me.txt',
     width: 400, x: 300, y: 150, open: false, file: 'about_me.txt',
     body:
-      '<div class="file-text">Hector Augusto Santizo<br>creative technologist &amp; 3D motion designer<br>Los Angeles, CA<br><br>I turn ideas into immersive experiences, blending design, animation, and code: real-time graphics, generative AI, XR.<br><br>From ambiguity to clarity. From prototype to production.<br><br>Also: free creative tools at has.tools, and five years of Burning Man photos in playa_stills.</div>' + FILE_HINT
+      '<div class="file-text">Hector Augusto Santizo<br>creative technologist · 3D motion designer · tool builder<br>Los Angeles, CA<br><br>Fifteen years where design, animation, and code overlap, including a decade leading creative services at a major music company.<br><br>Every project starts the same way: an idea someone can&#39;t quite see yet. I make it visible, then I make it work.<br><br>Also: free tools at has.tools, and five years of playa dust in burning_man_pics.</div>' + FILE_HINT
   },
 
   work: {
