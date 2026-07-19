@@ -9,7 +9,7 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 ## Structure
 
 - `index.html` — shell: head metadata, menu bar (shared chrome incl. IG/YT links and the "boring mode" link), `#desktop` (trash drop target), `#feed` (mobile). Loads `css/style.css`, then `js/site-data.js` → `js/mobile.js` → `js/os.js` (load order matters: content first, then renderers)
-- `boring.html` — "boring mode": plain semantic one-pager (bio, work links, toolbox, email/socials). Serves recruiters in a hurry, screen readers, and SEO; styled by the `body.plain` section of style.css
+- `boring.html` — "boring mode": plain semantic one-pager (bio, work links, toolbox, email/socials). For humans who click it (hurried recruiters, screen readers, no-JS, print); deliberately `noindex` and out of the sitemap so its "boring mode" title never appears in search results next to the main site. Styled by the `body.plain` section of style.css
 - `robots.txt`, `sitemap.xml` — SEO basics at the root; both pages carry canonical + OG + Twitter cards + `og:image` (`img/og-home.png`, a 1200x630 Playwright capture with a Vimeo poster frame injected over the reel), and index.html has JSON-LD Person markup
 - `css/style.css` — all styles; ink/cream brand tokens in `:root`; mobile-feed styles at the bottom gated by `body.mode-mobile`
 - `js/site-data.js` — **the content file**: `WINDOWS` (every window incl. its body HTML), `ICONS`, `MOBILE_FEED` (card order + which start collapsed), `PHOTOS`, `TRASH_NAME`/`TRASH_FIXED`. Edit this to change the site.
