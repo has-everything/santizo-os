@@ -103,7 +103,7 @@ var WINDOWS = {
         'cabinet|HAS Cabinet|parametric shelving'
       ].map(function (s, i) {
         var p = s.split('|');
-        return '<div class="ht-slide" style="animation-delay:' + (i * 4) + 's">' +
+        return '<div class="ht-slide" style="animation-delay:' + (i * 2.5) + 's">' +
           '<img src="https://has.tools/img/' + p[0] + '-card.png" alt="' + p[1] + ' · ' + p[2] + '" loading="lazy">' +
           '<span class="ht-chip">' + p[1] + ' · ' + p[2] + '</span></div>';
       }).join('') +
