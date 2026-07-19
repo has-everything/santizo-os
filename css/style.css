@@ -1,5 +1,14 @@
 /* SantizoOS styles. Brand tokens live in :root. */
 
+/* System font: ChicagoFLF (public domain Chicago clone, see fonts/README).
+   Chrome only, like the real thing: menu bar + window titles. Content stays
+   Space Mono, display stays Archivo. */
+@font-face{
+  font-family:'ChicagoFLF';
+  src:url('../fonts/ChicagoFLF.ttf') format('truetype');
+  font-display:swap;
+}
+
 :root{
   --ink:#111;
   --paper:#f4f2ec;
@@ -25,11 +34,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   position:absolute;top:0;left:0;right:0;z-index:9000;
   display:flex;justify-content:space-between;align-items:center;
   background:var(--paper);border-bottom:2px solid var(--ink);
-  font-size:12px;padding:7px 16px;
+  font-family:'ChicagoFLF','Space Mono',monospace;font-weight:400;
+  font-size:13px;padding:7px 16px;
 }
 .menu-left{display:flex;gap:22px;align-items:center}
 .menu-right{display:flex;gap:16px;align-items:center}
-.menu-brand{font-weight:700}
+.menu-brand{font-weight:400} /* Chicago carries its own weight */
 .menu-face{font-size:17px;line-height:1}
 .menu-item{cursor:pointer;text-decoration:none;white-space:nowrap}
 .menu-item:hover{background:var(--ink);color:var(--paper)}
@@ -53,7 +63,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 }
 .win-btn-max{font-size:9px}
 .win-btn:hover{background:var(--ink);color:var(--paper)}
-.win-title{flex:1;text-align:center;background:var(--chrome);padding:0 12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.win-title{flex:1;text-align:center;background:var(--chrome);padding:0 12px;font-family:'ChicagoFLF','Space Mono',monospace;font-weight:400;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 /* reel */
 .reel-frame{aspect-ratio:16/9;background:#000;border-bottom:2px solid var(--ink);position:relative}

@@ -32,7 +32,7 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 
 ## Conventions
 
-- **Brand**: `--ink #111`, `--paper #f4f2ec`, `--desk #c8c4b8`; 2px solid ink borders; hard offset shadows (6px windows, 3px buttons); Space Mono for UI, Archivo (heavy, condensed, uppercase) for display type.
+- **Brand**: `--ink #111`, `--paper #f4f2ec`, `--desk #c8c4b8`; 2px solid ink borders; hard offset shadows (6px windows, 3px buttons). Type: ChicagoFLF (self-hosted in `fonts/`, public domain, see its README) for OS chrome only (menu bar + window titles, single weight, 13px), Space Mono for UI/content, Archivo (heavy, condensed, uppercase) for display.
 - **No em dashes** anywhere in copy (owner dislikes them, reads as AI-written). Use commas, colons, or the middot ` · `.
 - **Prefer simple over optimal**: no config/infra/optimizations unless there's a user-visible problem.
 
