@@ -106,7 +106,8 @@ var WINDOWS = {
       '<div class="prose">' +
         '<div class="headline">Hector Augusto Santizo</div>' +
         '<div class="role">Creative Technologist · 3D Motion Designer · Tool Builder</div>' +
-        '<div class="blurb">I turn complex ideas into 3D motion, interactive systems, and useful creative tools. Some become client work. Some become has.tools. All begin with a problem worth solving. Los Angeles. Complex in, clear out.</div>' +
+        '<div class="blurb">I turn complex ideas into 3D motion, interactive systems, and useful creative tools. Some become client work. Others become tools at has.tools. All begin with a problem worth solving.</div>' +
+        '<div class="blurb">Los Angeles. Complex in, clear out.</div>' +
         '<div class="btn-row">' +
           '<a class="btn" href="mailto:hector@santizo.com">Email</a>' +
         '</div>' +
