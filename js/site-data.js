@@ -94,7 +94,20 @@ var WINDOWS = {
     title: 'has.tools · free creative tools',
     width: 640, x: 740, y: 300, dockBottom: 580, open: false, stageHeights: [300, 470], maxFull: true,
     body:
-      '<div class="stage"><div class="stage-note">has.tools · showcase still coming soon</div></div>' +
+      /* slide-projector loop of real tool UI captures from has.tools */
+      '<div class="stage ht-show">' +
+      [
+        'splay|Splay|exploded-view studio',
+        'lathe|HAS Lathe|3D vessel modeler',
+        'dither|HAS Dither|node-based dithering',
+        'cabinet|HAS Cabinet|parametric shelving'
+      ].map(function (s, i) {
+        var p = s.split('|');
+        return '<div class="ht-slide" style="animation-delay:' + (i * 4) + 's">' +
+          '<img src="https://has.tools/img/' + p[0] + '-card.png" alt="' + p[1] + ' · ' + p[2] + '" loading="lazy">' +
+          '<span class="ht-chip">' + p[1] + ' · ' + p[2] + '</span></div>';
+      }).join('') +
+      '</div>' +
       '<div class="widget-caption">Free browser tools for motion designers, 3D artists, and creative coders. Splay · HAS Lathe · HAS Dither · more.</div>' +
       '<a class="row row-first" href="https://www.has.tools" target="_blank" rel="noopener"><span>🛠 Explore all 7 tools</span><span class="dim">has.tools ↗</span></a>'
   },
