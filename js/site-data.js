@@ -51,7 +51,7 @@ function clipPlayerBody(ns, videos) {
    Desktop-only: don't add app windows to MOBILE_FEED (phones use links). */
 function appWindowBody(name, src) {
   return '<div class="stage stage-app"><iframe data-src="' + src + '" allow="fullscreen; clipboard-write" title="' + name + '"></iframe></div>' +
-    '<a class="row row-first" href="' + src + '" target="_blank" rel="noopener"><span>↗ Open full app</span><span class="dim">' + src.replace('https://', '') + '</span></a>';
+    '<span class="win-grow" data-nodrag title="Resize" aria-label="Resize window"></span>';
 }
 
 var ANIM_VIDEOS = [
@@ -183,25 +183,25 @@ var WINDOWS = {
 
   lathe: {
     title: 'HAS Lathe · 3D vessel modeler',
-    width: 960, x: 200, y: 90, open: false, maxFull: true, stageHeights: [520, 520],
+    width: 960, x: 200, y: 90, open: false, file: 'HAS Lathe.app', maxFull: true, stageHeights: [520, 520],
     body: appWindowBody('HAS Lathe', 'https://has.tools/apps/lathe/')
   },
 
   dither: {
     title: 'HAS Dither · node-based dithering',
-    width: 960, x: 240, y: 120, open: false, maxFull: true, stageHeights: [520, 520],
+    width: 960, x: 240, y: 120, open: false, file: 'HAS Dither.app', maxFull: true, stageHeights: [520, 520],
     body: appWindowBody('HAS Dither', 'https://has.tools/apps/dither/')
   },
 
   cabinet: {
     title: 'HAS Cabinet · parametric shelving',
-    width: 960, x: 280, y: 150, open: false, maxFull: true, stageHeights: [520, 520],
+    width: 960, x: 280, y: 150, open: false, file: 'HAS Cabinet.app', maxFull: true, stageHeights: [520, 520],
     body: appWindowBody('HAS Cabinet', 'https://has.tools/apps/cabinet/')
   },
 
   gallery: {
     title: 'HAS Gallery · gallery designer',
-    width: 960, x: 320, y: 180, open: false, maxFull: true, stageHeights: [520, 520],
+    width: 960, x: 320, y: 180, open: false, file: 'HAS Gallery.app', maxFull: true, stageHeights: [520, 520],
     body: appWindowBody('HAS Gallery', 'https://has.tools/apps/gallery/')
   },
 

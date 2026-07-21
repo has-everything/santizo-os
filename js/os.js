@@ -87,8 +87,40 @@
        the window and doubles as a drag handle */
     var shield = el.querySelector('.frame-shield');
     if (shield) shield.addEventListener('pointerdown', function (e) { dragStart(id, e); });
+    /* classic Mac grow box in the bottom-right corner of app windows */
+    var grow = el.querySelector('.win-grow');
+    if (grow) grow.addEventListener('pointerdown', function (e) { growStart(id, e); });
     desk.appendChild(el);
     winEls[id] = el;
+  }
+
+  /* resize an app window from its grow box; pointer capture keeps the drag
+     alive even when the cursor crosses the app's iframe */
+  function growStart(id, e) {
+    var w = state.wins[id];
+    if (w.max) return;
+    e.preventDefault();
+    e.stopPropagation();
+    focus(id);
+    var def = WINDOWS[id];
+    var grip = e.currentTarget;
+    var scale = desk.getBoundingClientRect().width / desk.offsetWidth || 1;
+    var sx = e.clientX, sy = e.clientY, ow = def.width, oh = def.stageHeights ? def.stageHeights[0] : null;
+    try { grip.setPointerCapture(e.pointerId); } catch (err) {}
+    var move = function (ev) {
+      def.width = Math.round(Math.min(Math.max(480, ow + (ev.clientX - sx) / scale), deskW - w.x - 16));
+      if (oh !== null) {
+        def.stageHeights[0] = Math.round(Math.min(Math.max(240, oh + (ev.clientY - sy) / scale), deskH - w.y - 60));
+      }
+      applyWin(id);
+    };
+    var up = function (ev) {
+      try { grip.releasePointerCapture(ev.pointerId); } catch (err) {}
+      grip.removeEventListener('pointermove', move);
+      grip.removeEventListener('pointerup', up);
+    };
+    grip.addEventListener('pointermove', move);
+    grip.addEventListener('pointerup', up);
   }
 
   /* icons with href are real links to external sites; the rest open windows */
@@ -237,7 +269,8 @@
       if (!state.deleted[id]) return;
       var row = document.createElement('div');
       row.className = 'trash-row trash-restore';
-      row.innerHTML = '<span>🗎 ' + WINDOWS[id].file + '</span><span class="dim">put back ↩</span>';
+      var ic = ICONS.filter(function (x) { return x.id === id; })[0];
+      row.innerHTML = '<span>' + (ic ? ic.glyph : '🗎') + ' ' + WINDOWS[id].file + '</span><span class="dim">put back ↩</span>';
       pressable(row, function () { restoreFile(id); });
       dyn.appendChild(row);
     });
@@ -247,8 +280,7 @@
 
   function trashFile(id) {
     state.deleted[id] = true;
-    state.wins[id].open = false;
-    applyWin(id);
+    closeWin(id); /* also unloads a running app iframe, like quitting */
     applyIcon(id);
     renderTrash();
     trashTarget.classList.remove('gulp');
