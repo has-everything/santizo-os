@@ -73,8 +73,8 @@
       '<div class="win-bar">' +
         '<button type="button" class="win-btn" data-nodrag data-act="close" title="Close" aria-label="Close window">✕</button>' +
         '<span class="win-title"></span>' +
-        '<button type="button" class="win-btn" data-nodrag data-act="min" title="Minimize (roll up)" aria-label="Minimize window">–</button>' +
-        '<button type="button" class="win-btn win-btn-max" data-nodrag data-act="max" title="Maximize" aria-label="Maximize window">❐</button>' +
+        '<button type="button" class="win-btn" data-nodrag data-act="min" title="Minimize (roll up)" aria-label="Minimize window"></button>' +
+        '<button type="button" class="win-btn" data-nodrag data-act="max" title="Maximize" aria-label="Maximize window"></button>' +
       '</div>' +
       '<div class="win-body">' + WINDOWS[id].body + '</div>';
     el.querySelector('.win-title').textContent = WINDOWS[id].title;
