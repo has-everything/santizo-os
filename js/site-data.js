@@ -30,8 +30,8 @@ var TRASH_FIXED = ['make_the_logo_bigger.psd', 'just_use_a_template.html', 'play
 /* Clip players (stage + prev/next + playlist). clipPlayerBody() builds the
    window body; js/os.js and js/mobile.js wire it via initClipPlayer(ns, list).
    Only the first clip's iframe is in the HTML (lazy); switching swaps src. */
-function clipPlayerBody(ns, videos) {
-  return '<div class="stage stage-video"><iframe id="' + ns + 'Frame" src="' + videos[0].src.replace(/&/g, '&amp;') + '" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + videos[0].title + '"></iframe></div>' +
+function clipPlayerBody(ns, videos, paperStage) {
+  return '<div class="stage stage-video' + (paperStage ? ' stage-paper' : '') + '"><iframe id="' + ns + 'Frame" src="' + videos[0].src.replace(/&/g, '&amp;') + '" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + videos[0].title + '"></iframe></div>' +
     '<div class="gallery-bar">' +
       '<button type="button" class="nav-btn" id="' + ns + 'Prev" aria-label="Previous clip">◀</button>' +
       '<button type="button" class="nav-btn" id="' + ns + 'Next" aria-label="Next clip">▶</button>' +
@@ -147,7 +147,7 @@ var WINDOWS = {
     title: '3d_animation · 6 clips',
     width: 560, x: 340, y: 120, open: false,
     maxFull: true, maxAspect: 16 / 9, maxChrome: 290, stageHeights: [315, 470],
-    body: clipPlayerBody('anim', ANIM_VIDEOS)
+    body: clipPlayerBody('anim', ANIM_VIDEOS, true)
   },
 
   xr: {

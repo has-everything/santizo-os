@@ -65,7 +65,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* classic Mac glyphs, drawn (currentColor so hover inverts them too):
    zoom box = smaller square notched into the top-left, windowshade = bar */
 .win-btn[data-act=max]::after{
-  content:'';position:absolute;top:-2px;right:-2px;width:5px;height:4px;
+  content:'';position:absolute;top:-2px;left:-2px;width:5px;height:4px;
   border:2px solid currentColor;background:inherit;
 }
 .win-btn[data-act=min]::after{
@@ -131,6 +131,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   color:rgba(244,242,236,.5);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
 }
 .stage iframe{width:100%;height:100%;border:0;display:block}
+/* paper-backed video stage (Vimeo embeds are transparent, so letterbox
+   bars pick this up instead of black; YouTube keeps its own black) */
+.stage-paper{background:var(--paper)}
 /* grow box: classic Mac resize handle on app windows; a light corner
    with small diagonal ridges, not full-bleed stripes */
 .win-grow{
