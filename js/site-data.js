@@ -118,7 +118,7 @@ var WINDOWS = {
     body:
       '<div class="prose">' +
         '<div class="headline">Hector Augusto Santizo</div>' +
-        '<div class="role">Creative Technologist · 3D Motion Designer</div>' +
+        '<div class="role">3D Motion Designer · Creative Technologist</div>' +
         '<div class="blurb">I turn complex ideas into 3D motion, interactive systems, and useful creative tools. Some become client work. Others become tools at has.tools. All begin with a problem worth solving.</div>' +
         '<div class="blurb">Los Angeles. Complex in, clear out.</div>' +
         '<div class="btn-row">' +
@@ -131,7 +131,7 @@ var WINDOWS = {
     title: 'about_me.txt',
     width: 400, x: 300, y: 150, open: false, file: 'about_me.txt',
     body:
-      '<div class="file-text">Hector Augusto Santizo<br>creative technologist · 3D motion designer<br>Los Angeles, CA<br><br>Fifteen years where design, animation, and code overlap, including a decade leading creative services at a major music company.<br><br>Every project starts the same way: an idea someone can&#39;t quite see yet. I make it visible, then I make it work.<br><br>Also: free tools at has.tools, and five years of playa dust in burning_man_pics.</div>' + FILE_HINT
+      '<div class="file-text">Hector Augusto Santizo<br>3D motion designer · creative technologist<br>Los Angeles, CA<br><br>Fifteen years where design, animation, and code overlap, including a decade leading creative services at a major music company.<br><br>Every project starts the same way: an idea someone can&#39;t quite see yet. I make it visible, then I make it work.<br><br>Also: free tools at has.tools, and five years of playa dust in burning_man_pics.</div>' + FILE_HINT
   },
 
   work: {
