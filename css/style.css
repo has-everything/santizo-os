@@ -80,13 +80,13 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .frame-shield{position:absolute;inset:0;cursor:grab;touch-action:none}
 .reel-foot{display:flex;justify-content:space-between;padding:6px 10px;font-size:11px}
 
-/* prose windows (about / projects) */
-.prose{padding:18px;font-family:'Archivo',system-ui,sans-serif}
+/* About window: Space Mono like the rest of the windows */
+.prose{padding:20px;font-family:'Space Mono',monospace}
 .prose-tight{padding:16px}
-.headline{font-size:24px;font-weight:700;line-height:1.1;letter-spacing:-.01em;text-transform:uppercase;font-stretch:80%}
-.role{font-size:14px;font-weight:600;line-height:1.2;text-transform:uppercase;font-stretch:80%;margin-top:8px}
+.headline{font-size:19px;font-weight:700;line-height:1.25;text-transform:uppercase}
+.role{font-size:12px;font-weight:700;line-height:1.4;text-transform:uppercase;margin-top:6px;opacity:.75}
 .proj-title{font-size:20px;font-weight:900;text-transform:uppercase}
-.blurb{font-size:13px;line-height:1.6;margin-top:12px;color:#333}
+.blurb{font-size:12px;line-height:1.8;margin-top:14px;color:#333}
 .proj-blurb{margin-top:6px}
 .btn-row{display:flex;gap:8px;margin-top:16px}
 .btn{
@@ -258,7 +258,6 @@ body.mode-mobile #feed{display:block;padding:16px 14px 40px;max-width:640px;marg
 body.mode-mobile .stage{height:min(70vw,340px)}
 body.mode-mobile .stage-video{height:auto;aspect-ratio:16/9}
 body.mode-mobile .gallery-bar{flex-wrap:wrap}
-body.mode-mobile .headline{font-size:24px}
 /* no window focus/drag on mobile; the shield would only block feed scrolling */
 body.mode-mobile .frame-shield{display:none}
 
