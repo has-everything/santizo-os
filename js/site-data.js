@@ -237,9 +237,9 @@ var WINDOWS = {
 
   readme: {
     title: 'README.txt',
-    width: 380, x: 720, y: 440, open: true, file: 'README.txt',
+    width: 410, x: 720, y: 430, open: true, file: 'README.txt',
     body:
-      '<div class="file-text">welcome to my site ✷<br><br>☐ drag any window by its bar (yes, this one)<br>☐ the ❐ button makes videos huge<br>☐ menu up top: reel, work, photos<br>☐ 🏺 🎛 🗄 📐 are real apps, click one<br>☐ drag a file onto the trash, it&#39;s fine<br><br>done? close me with the ✕ up top ↖</div>'
+      '<div class="file-text readme-text">welcome to my site ✷<br><br>☐ drag any window by its bar (yes, this one)<br>☐ the ❐ button makes videos huge<br>☐ menu up top: reel, work, photos<br>☐ 🏺 🎛 🗄 📐 are real apps, click one<br>☐ drag a file onto the trash, it&#39;s fine<br><br>done? close me with the ✕ up top ↖</div>'
   }
 
 };

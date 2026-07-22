@@ -177,6 +177,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* plain-text file windows */
 .file-text{padding:16px;font-size:12px;line-height:1.9}
 .file-hint{padding:0 16px 12px;font-size:10px;opacity:.5}
+/* README gets more air: it is the landing tutorial, so it should breathe */
+.readme-text{padding:24px 26px;font-size:13px;line-height:2.1}
 
 /* trash window */
 .trash-list{padding:8px 0;font-size:12px}
