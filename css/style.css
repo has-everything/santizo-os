@@ -83,8 +83,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* About window: Space Mono like the rest of the windows */
 .prose{padding:20px;font-family:'Space Mono',monospace}
 .prose-tight{padding:16px}
-.headline{font-size:19px;font-weight:700;line-height:1.25;text-transform:uppercase}
-.role{font-size:12px;font-weight:700;line-height:1.4;text-transform:uppercase;margin-top:6px;opacity:.75}
+.headline{font-size:19px;font-weight:700;line-height:1.25}
+.role{font-size:12px;font-weight:700;line-height:1.4;margin-top:6px;opacity:.75}
 .proj-title{font-size:20px;font-weight:900;text-transform:uppercase}
 .blurb{font-size:12px;line-height:1.8;margin-top:14px;color:#333}
 .proj-blurb{margin-top:6px}
