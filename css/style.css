@@ -65,7 +65,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* classic Mac glyphs, drawn (currentColor so hover inverts them too):
    zoom box = smaller square notched into the top-left, windowshade = bar */
 .win-btn[data-act=max]::after{
-  content:'';position:absolute;top:-2px;left:-2px;width:5px;height:4px;
+  content:'';position:absolute;top:0;left:0;width:3px;height:2px;
   border:2px solid currentColor;background:inherit;
 }
 .win-btn[data-act=min]::after{
