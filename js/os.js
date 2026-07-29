@@ -308,17 +308,34 @@
 
   /* ---------- dragging ---------- */
 
+  /* double-click on a title bar (or the reel's video) toggles maximize,
+     like modern UIs; tracked manually because canceling pointerdown for
+     dragging suppresses the native dblclick event */
+  var barTapId = null, barTapTime = 0;
+  function barTap(id) {
+    var now = Date.now();
+    if (barTapId === id && now - barTapTime < 400) {
+      barTapTime = 0;
+      toggleMax(id);
+      return;
+    }
+    barTapId = id;
+    barTapTime = now;
+  }
+
   function dragStart(id, e) {
     if (e.target.closest('[data-nodrag]')) return;
     if (e.target.closest('a')) return;
-    /* a full-page maximized window is pinned; un-maximize to move it */
-    if (state.wins[id].max && WINDOWS[id].maxFull) { focus(id); return; }
+    /* a full-page maximized window is pinned; double-click restores it */
+    if (state.wins[id].max && WINDOWS[id].maxFull) { focus(id); barTap(id); return; }
     e.preventDefault();
     focus(id);
     var w = state.wins[id];
+    var moved = false;
     var sx = e.clientX, sy = e.clientY, ox = w.x, oy = w.y;
     var deletable = !!WINDOWS[id].file;
     var move = function (ev) {
+      if (Math.abs(ev.clientX - sx) + Math.abs(ev.clientY - sy) > 4) moved = true;
       w.x = ox + (ev.clientX - sx);
       w.y = Math.max(32, oy + (ev.clientY - sy));
       applyWin(id);
@@ -333,6 +350,7 @@
         trashFile(id);
       }
       setTrashHot(false);
+      if (!moved) barTap(id); /* second still tap within 400ms = maximize */
     };
     window.addEventListener('pointermove', move);
     window.addEventListener('pointerup', up);
