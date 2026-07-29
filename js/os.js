@@ -531,6 +531,23 @@
   initClipPlayer('anim', ANIM_VIDEOS);
   fitToDesktop();
 
+  /* reel intro: an isometric Mac boots over the player while the Vimeo
+     embed loads and starts underneath (it autoplays muted). Once per
+     visit, desktop only; click skips, reduced motion skips it entirely
+     (both handled inside HASBoot, js/boot.js). */
+  if (window.HASBoot && state.wins.reel && state.wins.reel.open) {
+    var reelFrame = winEls.reel.querySelector('.reel-frame');
+    if (reelFrame) {
+      var bootCv = document.createElement('canvas');
+      bootCv.className = 'reel-boot';
+      reelFrame.appendChild(bootCv);
+      HASBoot.mount(bootCv, { onDone: function () {
+        /* .gone fades it out (CSS); drop the node once the fade ends */
+        setTimeout(function () { bootCv.remove(); }, 600);
+      } });
+    }
+  }
+
   /* ?open=<id> deep-links a window (used by boring.html and shareable) */
   var openParam = new URLSearchParams(location.search).get('open');
   if (openParam && state.wins[openParam]) openWin(openParam);

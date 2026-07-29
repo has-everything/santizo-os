@@ -81,6 +81,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .reel-frame{aspect-ratio:16/9;background:#000;border-bottom:2px solid var(--ink);position:relative}
 .reel-frame iframe{width:100%;height:100%;border:0;display:block}
 .frame-shield{position:absolute;inset:0;cursor:grab;touch-action:none}
+/* the reel intro canvas covers the player while it boots (js/boot.js);
+   above the shield so a click skips instead of dragging */
+.reel-boot{position:absolute;inset:0;width:100%;height:100%;display:block;
+  image-rendering:pixelated;image-rendering:crisp-edges;cursor:pointer;
+  transition:opacity .4s linear;z-index:2}
+.reel-boot.gone{opacity:0;pointer-events:none}
 .reel-foot{display:flex;justify-content:space-between;padding:6px 10px;font-size:11px}
 
 /* About window: Space Mono like the rest of the windows */
