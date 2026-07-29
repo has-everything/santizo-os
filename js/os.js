@@ -308,15 +308,15 @@
 
   /* ---------- dragging ---------- */
 
-  /* double-click on a title bar (or the reel's video) toggles maximize,
-     like modern UIs; tracked manually because canceling pointerdown for
-     dragging suppresses the native dblclick event */
+  /* double-click on a title bar rolls the window up into its bar and back,
+     the classic WindowShade behavior; tracked manually because canceling
+     pointerdown for dragging suppresses the native dblclick event */
   var barTapId = null, barTapTime = 0;
   function barTap(id) {
     var now = Date.now();
     if (barTapId === id && now - barTapTime < 400) {
       barTapTime = 0;
-      toggleMax(id);
+      toggleMin(id);
       return;
     }
     barTapId = id;
@@ -326,7 +326,7 @@
   function dragStart(id, e) {
     if (e.target.closest('[data-nodrag]')) return;
     if (e.target.closest('a')) return;
-    /* a full-page maximized window is pinned; double-click restores it */
+    /* a full-page maximized window is pinned; double-click still shades it */
     if (state.wins[id].max && WINDOWS[id].maxFull) { focus(id); barTap(id); return; }
     e.preventDefault();
     focus(id);
