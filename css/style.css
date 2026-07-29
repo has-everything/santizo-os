@@ -43,6 +43,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .menu-face{font-size:17px;line-height:1}
 .menu-item{cursor:pointer;text-decoration:none;white-space:nowrap}
 .menu-item:hover{background:var(--ink);color:var(--paper)}
+/* a menu item dims while its window is open; hover un-dims (still clickable) */
+.menu-item.open{opacity:.45}
+.menu-item.open:hover{opacity:1}
 
 /* windows */
 .win{
@@ -110,6 +113,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 }
 .row:last-child{border-bottom:none}
 .row:hover{background:var(--ink);color:var(--paper)}
+/* rows that launch windows dim while that window is open, like menu items */
+.row.open{opacity:.45}
+.row.open:hover{opacity:1}
 .row-first{border-top:1px solid var(--ink)}
 .row-slim{padding:8px 14px;font-size:12px}
 .row-active{background:var(--ink);color:var(--paper)}
@@ -194,6 +200,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   font-size:11px;text-align:center;text-decoration:none;
 }
 .icon:hover{opacity:.7}
+/* System 7: an icon dims while its window is open (after :hover so it wins) */
+.icon.open{opacity:.45}
+.icon.open:hover{opacity:.6}
 .icon-glyph{font-size:2.73em}
 
 /* trash icon (drop target; em-sized like the desktop icons) */

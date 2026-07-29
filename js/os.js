@@ -191,6 +191,19 @@
     el.style.display = state.deleted[id] ? 'none' : 'flex';
     el.style.left = Math.round(state.icons[id].x) + 'px';
     el.style.top = Math.round(state.icons[id].y) + 'px';
+    /* System 7 style: the icon stays dimmed while its window is open
+       (minimized/shaded still counts as open; link icons have no window) */
+    el.classList.toggle('open', !!(state.wins[id] && state.wins[id].open));
+  }
+
+  /* every launcher for a window dims while it's open: its desktop icon plus
+     any menu item or row that opens it. Not in applyWin (which runs per
+     pointermove during grow-box resize); called on open/close and boot. */
+  function applyOpeners(id) {
+    if (iconEls[id]) applyIcon(id);
+    document.querySelectorAll('[data-open="' + id + '"]').forEach(function (el) {
+      el.classList.toggle('open', state.wins[id].open);
+    });
   }
 
   function applyAll() {
@@ -212,6 +225,7 @@
     state.wins[id].open = true;
     state.wins[id].min = false;
     applyWin(id);
+    applyOpeners(id);
     focus(id);
     /* analytics: which windows people actually open (the whole OS is one URL,
        so this is the real signal). No-op if Web Analytics isn't loaded. */
@@ -230,6 +244,7 @@
   function closeWin(id) {
     state.wins[id].open = false;
     applyWin(id);
+    applyOpeners(id);
     winEls[id].querySelectorAll('iframe[src]').forEach(function (f) {
       if (f.src && f.src !== 'about:blank') {
         f.setAttribute('data-src', f.src);
@@ -492,6 +507,8 @@
   document.querySelectorAll('[data-open]').forEach(function (el) {
     pressable(el, function () { openWin(el.getAttribute('data-open')); });
   });
+  /* windows that start open dim their launchers from the first paint */
+  Object.keys(state.wins).forEach(applyOpeners);
   pressable(trashTarget, function () { openWin('trash'); });
 
   /* Esc closes the topmost open window */
