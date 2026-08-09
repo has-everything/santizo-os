@@ -86,7 +86,8 @@ var WINDOWS = {
          to front, and the video area doubles as a drag handle (the player
          is a chrome-less background loop, so it needs no clicks itself) */
       '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/350908783?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1" loading="lazy" allow="autoplay" title="Reel"></iframe><span class="frame-shield"></span></div>' +
-      '<div class="reel-foot"><span>▶ playing · loop</span><span>350908783.mov</span></div>'
+      '<div class="reel-foot"><span>▶ playing · loop</span></div>' +
+      '<span class="win-grow" data-nodrag title="Resize" aria-label="Resize window"></span>'
   },
 
   /* defined right after reel so it stacks above it but under about/work */

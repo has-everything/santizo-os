@@ -275,6 +275,7 @@ body.mode-mobile .stage-video{height:auto;aspect-ratio:16/9}
 body.mode-mobile .gallery-bar{flex-wrap:wrap}
 /* no window focus/drag on mobile; the shield would only block feed scrolling */
 body.mode-mobile .frame-shield{display:none}
+body.mode-mobile .win-grow{display:none}
 
 /* the apps (and their Help window) are desktop-only */
 body.mode-mobile .menu-help{display:none}
