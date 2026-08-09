@@ -44,15 +44,15 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
    markup is hidden because font fallbacks render it squished */
 .menu-face{
   position:relative;width:17px;height:17px;box-sizing:border-box;
-  border:2px solid var(--ink);border-radius:50%;
+  border:1.5px solid var(--ink);border-radius:50%;
   font-size:0;color:transparent;
 }
-.menu-face::before{ /* eyes */
-  content:'';position:absolute;left:3px;top:3.5px;width:2px;height:3.5px;
-  background:var(--ink);box-shadow:5px 0 0 var(--ink);
+.menu-face::before{ /* eyes: two dots */
+  content:'';position:absolute;left:3.5px;top:4px;width:2px;height:2px;
+  border-radius:50%;background:var(--ink);box-shadow:5px 0 0 var(--ink);
 }
 .menu-face::after{ /* smile: the bottom arc of a small circle */
-  content:'';position:absolute;left:2.5px;top:1.5px;width:8px;height:8px;
+  content:'';position:absolute;left:3px;top:2px;width:8px;height:8px;
   box-sizing:border-box;border:1.5px solid transparent;
   border-bottom-color:var(--ink);border-radius:50%;
 }
