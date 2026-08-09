@@ -524,6 +524,12 @@
   var next = document.getElementById('photoNext');
   if (prev) prev.addEventListener('click', function () { photoStep(-1); });
   if (next) next.addEventListener('click', function () { photoStep(1); });
+  /* the photo itself pages too: right half forward, left half back */
+  var photoStage = winEls.bm && winEls.bm.querySelector('.stage-photos');
+  if (photoStage) photoStage.addEventListener('click', function (e) {
+    var r = photoStage.getBoundingClientRect();
+    photoStep(e.clientX < r.left + r.width / 2 ? -1 : 1);
+  });
 
   renderTrash();
   updateGallery();

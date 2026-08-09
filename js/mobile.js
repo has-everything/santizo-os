@@ -99,11 +99,16 @@ var SantizoMobile = {
       document.getElementById('photoImg').src = PHOTOS[idx];
       document.getElementById('photoCounter').textContent = (idx + 1) + ' / ' + PHOTOS.length;
     }
-    document.getElementById('photoPrev').addEventListener('click', function () {
-      idx = (idx + PHOTOS.length - 1) % PHOTOS.length; update();
-    });
-    document.getElementById('photoNext').addEventListener('click', function () {
-      idx = (idx + 1) % PHOTOS.length; update();
+    function step(d) {
+      idx = (idx + d + PHOTOS.length) % PHOTOS.length; update();
+    }
+    document.getElementById('photoPrev').addEventListener('click', function () { step(-1); });
+    document.getElementById('photoNext').addEventListener('click', function () { step(1); });
+    /* the photo itself pages too: right half forward, left half back */
+    var stage = document.querySelector('.stage-photos');
+    if (stage) stage.addEventListener('click', function (e) {
+      var r = stage.getBoundingClientRect();
+      step(e.clientX < r.left + r.width / 2 ? -1 : 1);
     });
     update();
   }

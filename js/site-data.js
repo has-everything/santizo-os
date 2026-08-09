@@ -175,11 +175,14 @@ var WINDOWS = {
     body:
       '<div class="stage stage-photos"><img id="photoImg" alt="Burning Man photograph by Hector Augusto Santizo" loading="lazy"></div>' +
       '<div class="gallery-bar">' +
-        '<button type="button" class="nav-btn" id="photoPrev" aria-label="Previous photo">◀</button>' +
-        '<button type="button" class="nav-btn" id="photoNext" aria-label="Next photo">▶</button>' +
-        '<span class="gallery-counter" id="photoCounter"></span>' +
+        '<span class="gallery-nav">' +
+          '<button type="button" class="nav-btn" id="photoPrev" aria-label="Previous photo">◀</button>' +
+          '<span class="gallery-counter" id="photoCounter"></span>' +
+          '<button type="button" class="nav-btn" id="photoNext" aria-label="Next photo">▶</button>' +
+        '</span>' +
         '<span class="gallery-note">Black Rock City · 5 years of dust &amp; light</span>' +
-      '</div>'
+      '</div>' +
+      '<span class="win-grow" data-nodrag title="Resize" aria-label="Resize window"></span>'
   },
 
   lathe: {

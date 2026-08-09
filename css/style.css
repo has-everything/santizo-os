@@ -171,20 +171,24 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 @keyframes htCycle{0%{opacity:1}25%{opacity:0}100%{opacity:0}}
 
 /* photos mat like prints on paper instead of letterboxing on black */
-.stage-photos{display:flex;align-items:center;justify-content:center;padding:16px;background:var(--paper)}
+.stage-photos{display:flex;align-items:center;justify-content:center;padding:16px;background:var(--paper);cursor:pointer}
 .stage-photos img{max-width:100%;max-height:100%;width:auto;height:auto;border:2px solid var(--ink);box-shadow:4px 4px 0 rgba(17,17,17,.2)}
 .widget-caption{
   padding:12px 16px 14px;
   font-family:'Archivo',system-ui,sans-serif;font-size:13px;line-height:1.5;color:#333;
 }
-.gallery-bar{display:flex;align-items:center;gap:10px;padding:9px 10px;font-size:12px}
+/* grid centers the nav cluster in the bar regardless of the note's width */
+.gallery-bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:9px 10px;font-size:12px}
+.gallery-nav{grid-column:2;display:flex;align-items:center;gap:10px}
 .nav-btn{
   border:2px solid var(--ink);background:#fff;padding:3px 12px;
   cursor:pointer;user-select:none;box-shadow:2px 2px 0 var(--ink);
 }
 .nav-btn:hover{background:var(--ink);color:var(--paper)}
 .gallery-counter{font-weight:700}
-.gallery-note{margin-left:auto;opacity:.6}
+/* note takes the left column (grid placement, not source order) so the
+   bottom-right corner stays clear for the grow box */
+.gallery-note{grid-column:1;grid-row:1;justify-self:start;opacity:.6}
 
 /* plain-text file windows */
 .file-text{padding:16px;font-size:12px;line-height:1.9}
@@ -272,7 +276,7 @@ body.mode-mobile #feed{display:block;padding:16px 14px 40px;max-width:640px;marg
 
 body.mode-mobile .stage{height:min(70vw,340px)}
 body.mode-mobile .stage-video{height:auto;aspect-ratio:16/9}
-body.mode-mobile .gallery-bar{flex-wrap:wrap}
+body.mode-mobile .gallery-bar{display:flex;flex-wrap:wrap;gap:10px}
 /* no window focus/drag on mobile; the shield would only block feed scrolling */
 body.mode-mobile .frame-shield{display:none}
 body.mode-mobile .win-grow{display:none}
