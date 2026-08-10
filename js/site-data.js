@@ -56,7 +56,7 @@ function appWindowBody(name, src) {
 
 var ANIM_VIDEOS = [
   { title: 'Roboto', tag: 'Plasticity · Unity · C#', src: 'https://player.vimeo.com/video/1056096066?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
-  { title: 'HAS CG Reel', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/350908783?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
+  { title: 'HAS CG Reel', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/1216889002?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
   { title: 'Star trails', tag: 'concept · art · animation', src: 'https://player.vimeo.com/video/269102770?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
   { title: 'Evidence of Existence', tag: '360 VR · particles', src: 'https://player.vimeo.com/video/207575582?autopause=0&muted=1&loop=1&title=0&byline=0&portrait=0' },
   { title: 'Visual Alternatives', tag: 'audio-visual · Unity', src: 'https://www.youtube.com/embed/FrM8C7vHTow' },
@@ -85,7 +85,7 @@ var WINDOWS = {
       /* the shield sits over the iframe so clicks reach the window: focus
          to front, and the video area doubles as a drag handle (the player
          is a chrome-less background loop, so it needs no clicks itself) */
-      '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/350908783?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1" loading="lazy" allow="autoplay" title="Reel"></iframe><span class="frame-shield"></span></div>' +
+      '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/1216889002?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1" loading="lazy" allow="autoplay" title="Reel"></iframe><span class="frame-shield"></span></div>' +
       '<div class="reel-foot"><span>▶ playing · loop</span></div>' +
       '<span class="win-grow" data-nodrag title="Resize" aria-label="Resize window"></span>'
   },
