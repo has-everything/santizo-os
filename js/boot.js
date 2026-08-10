@@ -379,7 +379,7 @@ function mount(canvas,opts){
     }
     var p=cl(loaded/N);
 
-    var cap="LOADING SANTIZO SHOWREEL 2026";
+    var cap="LOADING SANTIZO REEL 2026";
     var cy=blockTop+blockH+gapA;
     glyph(cap,Math.round((W-twid(cap,cs))/2),cy,cs,TEXT);
 

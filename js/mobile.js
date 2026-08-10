@@ -93,6 +93,18 @@ var SantizoMobile = {
     initClipPlayer('xr', XR_VIDEOS);
     initClipPlayer('anim', ANIM_VIDEOS);
 
+    /* reel sound toggle (same wiring as desktop; the card embed starts muted) */
+    var soundBtn = document.getElementById('reelSound');
+    if (soundBtn) soundBtn.addEventListener('click', function () {
+      var f = document.querySelector('.reel-frame iframe');
+      var turnOn = soundBtn.textContent.indexOf('off') > -1;
+      if (f && f.contentWindow) {
+        f.contentWindow.postMessage(JSON.stringify({ method: 'setVolume', value: turnOn ? 1 : 0 }), '*');
+      }
+      soundBtn.textContent = turnOn ? 'sound: on' : 'sound: off';
+      soundBtn.setAttribute('aria-pressed', String(turnOn));
+    });
+
     /* photo gallery */
     var idx = 0;
     function update() {

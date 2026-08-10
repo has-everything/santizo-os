@@ -103,6 +103,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   transition:opacity .4s linear;z-index:2}
 .reel-boot.gone{opacity:0;pointer-events:none}
 .reel-foot{display:flex;justify-content:space-between;padding:6px 10px;font-size:11px}
+/* sound toggle: the reel loops muted until asked; margin clears the grow box */
+.reel-sound{border:0;background:none;font:inherit;cursor:pointer;padding:0 4px;margin-right:20px}
+.reel-sound:hover{background:var(--ink);color:var(--paper)}
 
 /* About window: Space Mono like the rest of the windows */
 .prose{padding:20px;font-family:'Space Mono',monospace}

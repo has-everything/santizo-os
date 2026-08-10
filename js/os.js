@@ -254,6 +254,11 @@
         f.src = 'about:blank';
       }
     });
+    /* closing quits the player, so a reopened reel is muted again */
+    if (id === 'reel') {
+      var sb = document.getElementById('reelSound');
+      if (sb) { sb.textContent = 'sound: off'; sb.setAttribute('aria-pressed', 'false'); }
+    }
   }
 
   function toggleMin(id) {
@@ -527,6 +532,19 @@
   var next = document.getElementById('photoNext');
   if (prev) prev.addEventListener('click', function () { photoStep(-1); });
   if (next) next.addEventListener('click', function () { photoStep(1); });
+  /* reel sound toggle: the background embed starts muted; the button asks
+     the Vimeo player for volume via its postMessage API */
+  var soundBtn = document.getElementById('reelSound');
+  if (soundBtn) soundBtn.addEventListener('click', function () {
+    var f = document.querySelector('.reel-frame iframe');
+    var turnOn = soundBtn.textContent.indexOf('off') > -1;
+    if (f && f.contentWindow) {
+      f.contentWindow.postMessage(JSON.stringify({ method: 'setVolume', value: turnOn ? 1 : 0 }), '*');
+    }
+    soundBtn.textContent = turnOn ? 'sound: on' : 'sound: off';
+    soundBtn.setAttribute('aria-pressed', String(turnOn));
+  });
+
   /* the photo itself pages too: right half forward, left half back */
   var photoStage = winEls.bm && winEls.bm.querySelector('.stage-photos');
   if (photoStage) photoStage.addEventListener('click', function (e) {
