@@ -33,9 +33,12 @@ var TRASH_FIXED = ['make_the_logo_bigger.psd', 'just_use_a_template.html', 'play
 function clipPlayerBody(ns, videos, paperStage) {
   return '<div class="stage stage-video' + (paperStage ? ' stage-paper' : '') + '"><iframe id="' + ns + 'Frame" src="' + videos[0].src.replace(/&/g, '&amp;') + '" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="' + videos[0].title + '"></iframe></div>' +
     '<div class="gallery-bar">' +
-      '<button type="button" class="nav-btn" id="' + ns + 'Prev" aria-label="Previous clip">◀</button>' +
-      '<button type="button" class="nav-btn" id="' + ns + 'Next" aria-label="Next clip">▶</button>' +
-      '<span class="gallery-counter" id="' + ns + 'Counter">1 / ' + videos.length + '</span>' +
+      /* vertical arrows: prev/next mirror the clip list stacked below */
+      '<span class="gallery-nav">' +
+        '<button type="button" class="nav-btn" id="' + ns + 'Prev" aria-label="Previous clip">▲</button>' +
+        '<span class="gallery-counter" id="' + ns + 'Counter">1 / ' + videos.length + '</span>' +
+        '<button type="button" class="nav-btn" id="' + ns + 'Next" aria-label="Next clip">▼</button>' +
+      '</span>' +
       '<span class="gallery-note" id="' + ns + 'Title">' + videos[0].title + '</span>' +
     '</div>' +
     videos.map(function (v, i) {
@@ -85,7 +88,7 @@ var WINDOWS = {
       /* the shield sits over the iframe so clicks reach the window: focus
          to front, and the video area doubles as a drag handle (the player
          is a chrome-less background loop, so it needs no clicks itself) */
-      '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/1216889002?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1" loading="lazy" allow="autoplay" title="Reel"></iframe><span class="frame-shield"></span></div>' +
+      '<div class="reel-frame"><iframe src="https://player.vimeo.com/video/1216889002?autoplay=1&amp;loop=1&amp;background=1&amp;muted=1&amp;autopause=0" loading="lazy" allow="autoplay" title="Reel"></iframe><span class="frame-shield"></span></div>' +
       '<div class="reel-foot"><span>▶ playing · loop</span></div>' +
       '<span class="win-grow" data-nodrag title="Resize" aria-label="Resize window"></span>'
   },
@@ -146,14 +149,14 @@ var WINDOWS = {
 
   anim: {
     title: '3d_animation · 6 clips',
-    width: 560, x: 340, y: 120, open: false,
+    width: 560, x: 340, y: 120, open: false, openMax: true,
     maxFull: true, maxAspect: 16 / 9, maxChrome: 290, stageHeights: [315, 470],
     body: clipPlayerBody('anim', ANIM_VIDEOS, true)
   },
 
   xr: {
     title: 'xr_interaction · 7 clips',
-    width: 560, x: 400, y: 150, open: false,
+    width: 560, x: 400, y: 150, open: false, openMax: true,
     maxFull: true, maxAspect: 16 / 9, maxChrome: 320, stageHeights: [315, 470],
     body: clipPlayerBody('xr', XR_VIDEOS)
   },

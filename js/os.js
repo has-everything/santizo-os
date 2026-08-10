@@ -224,6 +224,9 @@
     var wasOpen = state.wins[id].open;
     state.wins[id].open = true;
     state.wins[id].min = false;
+    /* video windows open full-page for watching; only on a fresh open so
+       re-clicking a row doesn't yank back a window the user un-maximized */
+    if (WINDOWS[id].openMax && !wasOpen) state.wins[id].max = true;
     applyWin(id);
     applyOpeners(id);
     focus(id);
