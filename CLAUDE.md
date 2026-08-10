@@ -39,7 +39,7 @@ Origin: implemented from the Claude Design project "SantizoOS Retro.dc.html" (cl
 ## Known placeholders
 
 - The `xr` and `anim` windows are clip players (`XR_VIDEOS`/`ANIM_VIDEOS` in site-data.js; `clipPlayerBody(ns, list)` builds the markup, `initClipPlayer(ns, list)` in both renderers wires it; only the current clip's iframe loads). Add a clip = add a `{title, tag, src}` entry.
-- Vimeo reel id 350908783 is the current reel (also in `ANIM_VIDEOS` as HAS CG Reel); swap when recut.
+- Vimeo reel id 1216889002 (2026 cut) is the current reel (also in `ANIM_VIDEOS` as HAS CG Reel); swap when recut.
 - The has.tools widget stage is a text placeholder; swap the `.stage-note` div for an `<img>` (e.g. `img/hastools-card.png`) when a real capture exists.
 - Old santizo.com page URLs (hello.html, animation.html, xr.html, images/) will 404 once the domain points here; add redirects in a vercel.json if that ever matters.
 
