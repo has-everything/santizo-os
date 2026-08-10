@@ -57,27 +57,28 @@ function appWindowBody(name, src) {
     '<span class="win-grow" data-nodrag title="Resize" aria-label="Resize window"></span>';
 }
 
-/* Clips play with sound (no muted=1): they never autoplay, so audio only
-   starts on a deliberate click. Vimeo autopause stays on (no autopause=0)
-   so starting one clip pauses another instead of overlapping audio; the
-   reel window opts out of autopause and keeps looping, muted. */
+/* Clips play with sound (no muted=1) and autoplay on selection: every
+   selection is a click (row, arrows, or opening the window), so browsers
+   allow it. Vimeo autopause stays on (no autopause=0) so starting one
+   clip pauses another instead of overlapping audio; the reel window
+   opts out of autopause and keeps looping, muted. */
 var ANIM_VIDEOS = [
-  { title: 'Santizo Reel 2026', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/1216889002?loop=1&title=0&byline=0&portrait=0' },
-  { title: 'Roboto', tag: 'Plasticity · Unity · C#', src: 'https://player.vimeo.com/video/1056096066?loop=1&title=0&byline=0&portrait=0' },
-  { title: 'Star trails', tag: 'concept · art · animation', src: 'https://player.vimeo.com/video/269102770?loop=1&title=0&byline=0&portrait=0' },
-  { title: 'Evidence of Existence', tag: '360 VR · particles', src: 'https://player.vimeo.com/video/207575582?loop=1&title=0&byline=0&portrait=0' },
-  { title: 'Visual Alternatives', tag: 'audio-visual · Unity', src: 'https://www.youtube.com/embed/FrM8C7vHTow' },
-  { title: 'Real-time interactive app', tag: 'Unity · real-time', src: 'https://player.vimeo.com/video/548921641?loop=1&title=0&byline=0&portrait=0' }
+  { title: 'Santizo Reel 2026', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/1216889002?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Roboto', tag: 'Plasticity · Unity · C#', src: 'https://player.vimeo.com/video/1056096066?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Star trails', tag: 'concept · art · animation', src: 'https://player.vimeo.com/video/269102770?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Evidence of Existence', tag: '360 VR · particles', src: 'https://player.vimeo.com/video/207575582?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Visual Alternatives', tag: 'audio-visual · Unity', src: 'https://www.youtube.com/embed/FrM8C7vHTow?autoplay=1' },
+  { title: 'Real-time interactive app', tag: 'Unity · real-time', src: 'https://player.vimeo.com/video/548921641?loop=1&title=0&byline=0&portrait=0&autoplay=1' }
 ];
 
 var XR_VIDEOS = [
-  { title: 'HAS Photo Booth', tag: 'MediaPipe · browser', src: 'https://www.youtube.com/embed/1L2anMG2k-8' },
-  { title: 'Hand Tracker', tag: 'MediaPipe · JavaScript', src: 'https://www.youtube.com/embed/2WZzjRuMJU0' },
-  { title: 'Wrist Interaction', tag: 'tracked transforms', src: 'https://player.vimeo.com/video/989005478?loop=1&title=0&byline=0&portrait=0' },
-  { title: 'Interactive 3D Calculator', tag: 'gesture math', src: 'https://player.vimeo.com/video/1001763153?loop=1&title=0&byline=0&portrait=0' },
-  { title: 'Interactive Gauge Control', tag: 'VR/AR dials', src: 'https://player.vimeo.com/video/982232014?loop=1&title=0&byline=0&portrait=0' },
-  { title: 'Arrow Grid System', tag: 'VR interaction', src: 'https://player.vimeo.com/video/990364072?loop=1&title=0&byline=0&portrait=0' },
-  { title: 'Pinch Twist Interaction', tag: 'hand gesture', src: 'https://player.vimeo.com/video/990453573?loop=1&title=0&byline=0&portrait=0' }
+  { title: 'HAS Photo Booth', tag: 'MediaPipe · browser', src: 'https://www.youtube.com/embed/1L2anMG2k-8?autoplay=1' },
+  { title: 'Hand Tracker', tag: 'MediaPipe · JavaScript', src: 'https://www.youtube.com/embed/2WZzjRuMJU0?autoplay=1' },
+  { title: 'Wrist Interaction', tag: 'tracked transforms', src: 'https://player.vimeo.com/video/989005478?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Interactive 3D Calculator', tag: 'gesture math', src: 'https://player.vimeo.com/video/1001763153?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Interactive Gauge Control', tag: 'VR/AR dials', src: 'https://player.vimeo.com/video/982232014?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Arrow Grid System', tag: 'VR interaction', src: 'https://player.vimeo.com/video/990364072?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Pinch Twist Interaction', tag: 'hand gesture', src: 'https://player.vimeo.com/video/990453573?loop=1&title=0&byline=0&portrait=0&autoplay=1' }
 ];
 
 var FILE_HINT = '<div class="file-hint">drag this window (or its desktop icon) onto the trash to delete</div>';
