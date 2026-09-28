@@ -150,6 +150,12 @@
 
   /* ---------- rendering ---------- */
 
+  /* full-page maximize fits what's on screen: the desktop has a 820px
+     min-height, so on a shorter browser it's taller than the viewport */
+  function visibleH() {
+    return Math.min(deskH, window.innerHeight || deskH);
+  }
+
   function maxWidth(id) {
     var def = WINDOWS[id];
     if (def.maxFull) {
@@ -157,7 +163,7 @@
          the whole window still fits on the page */
       var w = deskW - 24;
       if (def.maxAspect) {
-        w = Math.min(w, Math.round((deskH - 56 - (def.maxChrome || 64)) * def.maxAspect));
+        w = Math.min(w, Math.round((visibleH() - 56 - (def.maxChrome || 64)) * def.maxAspect));
       }
       return w;
     }
@@ -181,7 +187,7 @@
     var sh = def.stageHeights;
     if (sh) {
       /* full-page: video stages keep their aspect; photo stages fill the page */
-      var stageH = w.max ? (full ? (def.maxAspect ? Math.round(width / def.maxAspect) : deskH - 136) : sh[1]) : sh[0];
+      var stageH = w.max ? (full ? (def.maxAspect ? Math.round(width / def.maxAspect) : visibleH() - 56 - (def.maxChrome || 80)) : sh[1]) : sh[0];
       el.querySelector('.stage').style.height = stageH + 'px';
     }
   }

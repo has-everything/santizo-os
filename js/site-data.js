@@ -16,7 +16,8 @@
      stageHeights  [normal, maximized] height for a .stage element in the body
      maxFull    maximize fills the whole desktop (media windows) instead of 1.6x;
                 with maxAspect (w/h of the media) + maxChrome (px of non-media
-                height) the width is capped so the window still fits the page
+                height) the width is capped so the window still fits the page;
+                without maxAspect, maxChrome (default 80) sizes the stage height
 */
 
 var PHOTOS = [];
@@ -65,11 +66,11 @@ function appWindowBody(name, src) {
 var ANIM_VIDEOS = [
   { title: 'Santizo Reel 2026', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/1216889002?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Van Gogh · The Bedroom', tag: 'Unreal Engine · interactive', src: 'https://player.vimeo.com/video/1230984635?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
-  { title: 'Roboto', tag: 'Plasticity · Unity · C#', src: 'https://player.vimeo.com/video/1056096066?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Star trails', tag: 'concept · art · animation', src: 'https://player.vimeo.com/video/269102770?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Evidence of Existence', tag: '360 VR · particles', src: 'https://player.vimeo.com/video/207575582?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Visual Alternatives', tag: 'audio-visual · Unity', src: 'https://www.youtube.com/embed/FrM8C7vHTow?autoplay=1' },
-  { title: 'Real-time interactive app', tag: 'Unity · real-time', src: 'https://player.vimeo.com/video/548921641?loop=1&title=0&byline=0&portrait=0&autoplay=1' }
+  { title: 'Real-time interactive app', tag: 'Unity · real-time', src: 'https://player.vimeo.com/video/548921641?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Roboto', tag: 'Plasticity · Unity · C#', src: 'https://player.vimeo.com/video/1056096066?loop=1&title=0&byline=0&portrait=0&autoplay=1' }
 ];
 
 var XR_VIDEOS = [
@@ -103,7 +104,7 @@ var WINDOWS = {
   /* defined right after reel so it stacks above it but under about/work */
   hastools: {
     title: 'has.tools · free creative tools',
-    width: 640, x: 740, y: 300, dockBottom: 580, open: false, stageHeights: [300, 470], maxFull: true,
+    width: 640, x: 740, y: 300, dockBottom: 580, open: false, stageHeights: [300, 470], maxFull: true, maxChrome: 124,
     body:
       /* slide-projector loop of real tool UI captures from has.tools */
       '<div class="stage ht-show">' +
@@ -157,14 +158,14 @@ var WINDOWS = {
   anim: {
     title: '3d_animation · 7 clips',
     width: 560, x: 340, y: 120, open: false, openMax: true,
-    maxFull: true, maxAspect: 16 / 9, maxChrome: 320, stageHeights: [315, 470],
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 325, stageHeights: [315, 470],
     body: clipPlayerBody('anim', ANIM_VIDEOS, true)
   },
 
   xr: {
     title: 'xr_interaction · 7 clips',
     width: 560, x: 400, y: 150, open: false, openMax: true,
-    maxFull: true, maxAspect: 16 / 9, maxChrome: 320, stageHeights: [315, 470],
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 325, stageHeights: [315, 470],
     body: clipPlayerBody('xr', XR_VIDEOS)
   },
 
