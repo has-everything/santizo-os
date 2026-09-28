@@ -64,6 +64,7 @@ function appWindowBody(name, src) {
    opts out of autopause and keeps looping, muted. */
 var ANIM_VIDEOS = [
   { title: 'Santizo Reel 2026', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/1216889002?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'Van Gogh · The Bedroom', tag: 'Unreal Engine · interactive', src: 'https://player.vimeo.com/video/1230984635?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Roboto', tag: 'Plasticity · Unity · C#', src: 'https://player.vimeo.com/video/1056096066?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Star trails', tag: 'concept · art · animation', src: 'https://player.vimeo.com/video/269102770?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Evidence of Existence', tag: '360 VR · particles', src: 'https://player.vimeo.com/video/207575582?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
@@ -154,9 +155,9 @@ var WINDOWS = {
   },
 
   anim: {
-    title: '3d_animation · 6 clips',
+    title: '3d_animation · 7 clips',
     width: 560, x: 340, y: 120, open: false, openMax: true,
-    maxFull: true, maxAspect: 16 / 9, maxChrome: 290, stageHeights: [315, 470],
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 320, stageHeights: [315, 470],
     body: clipPlayerBody('anim', ANIM_VIDEOS, true)
   },
 
