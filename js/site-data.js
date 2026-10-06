@@ -66,6 +66,7 @@ function appWindowBody(name, src) {
 var ANIM_VIDEOS = [
   { title: 'Santizo Reel 2026', tag: 'art direction · sim · lighting', src: 'https://player.vimeo.com/video/1216889002?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Van Gogh · The Bedroom', tag: 'Unreal Engine · interactive', src: 'https://player.vimeo.com/video/1230984635?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
+  { title: 'HAS LP-19', tag: 'product design · 3D', src: 'https://player.vimeo.com/video/1233222591?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Star trails', tag: 'concept · art · animation', src: 'https://player.vimeo.com/video/269102770?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Evidence of Existence', tag: '360 VR · particles', src: 'https://player.vimeo.com/video/207575582?loop=1&title=0&byline=0&portrait=0&autoplay=1' },
   { title: 'Visual Alternatives', tag: 'audio-visual · Unity', src: 'https://www.youtube.com/embed/FrM8C7vHTow?autoplay=1' },
@@ -156,9 +157,9 @@ var WINDOWS = {
   },
 
   anim: {
-    title: '3d_animation · 7 clips',
+    title: '3d_animation · 8 clips',
     width: 560, x: 340, y: 120, open: false, openMax: true,
-    maxFull: true, maxAspect: 16 / 9, maxChrome: 325, stageHeights: [315, 470],
+    maxFull: true, maxAspect: 16 / 9, maxChrome: 360, stageHeights: [315, 470],
     body: clipPlayerBody('anim', ANIM_VIDEOS, true)
   },
 
