@@ -1,5 +1,7 @@
 # SantizoOS — santizo.com
 
+**Since October 2026 this is "OS mode" at https://santizo-os.vercel.app.** santizo.com moved to the editorial redesign (repo `has-everything/santizo-site`), whose footer links here. Link previews (`og:url`, `og:image`) point at the vercel.app address so they keep working; index.html's canonical still points at santizo.com on purpose (search engines treat this as a copy of the main site).
+
 Personal site for Hector Augusto Santizo (HAS), styled as a retro desktop OS: draggable windows, desktop file icons, a "bad ideas" trash can. Plain HTML/CSS/JS, no build step, no framework. Plain scripts (no modules) so the site also works via `file://`. Intended to become the new **santizo.com**.
 
 Repo: **github.com/has-everything/santizo-os**. Live at **https://santizo-os.vercel.app** (Vercel project `santizo-os`, GitHub integration: push to `main` → production, no build command, output = repo root).
